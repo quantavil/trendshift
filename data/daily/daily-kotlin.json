@@ -1,0 +1,524 @@
+[
+  {
+    "period_key": "2026-08-12",
+    "rank": 1,
+    "score": 387,
+    "full_name": "embabel/embabel-agent",
+    "github_url": "https://github.com/embabel/embabel-agent",
+    "description": "Agent framework for the JVM. Pronounced Em-BAY-bel /ɛmˈbeɪbəl/",
+    "language": "Kotlin",
+    "stars_total": 4193,
+    "stars_gained": 60,
+    "forks_total": 415,
+    "forks_gained": 3,
+    "created_at": "2025-04-10T03:06:07Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 2,
+    "score": 288,
+    "full_name": "MetrolistGroup/Metrolist",
+    "github_url": "https://github.com/MetrolistGroup/Metrolist",
+    "description": "YouTube Music client for Android",
+    "language": "Kotlin",
+    "stars_total": 11701,
+    "stars_gained": 50,
+    "forks_total": 865,
+    "forks_gained": 1,
+    "created_at": "2023-08-11T12:19:23Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 3,
+    "score": 284,
+    "full_name": "CYQawa/YunX",
+    "github_url": "https://github.com/CYQawa/YunX",
+    "description": "✨一个安卓网盘解析下载app✨",
+    "language": "Kotlin",
+    "stars_total": 129,
+    "stars_gained": 35,
+    "forks_total": 7,
+    "forks_gained": 2,
+    "created_at": "2026-08-06T16:42:44Z",
+    "tags": [
+      "file-management"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 4,
+    "score": 272,
+    "full_name": "cosmictaserdev-creator/Convx",
+    "github_url": "https://github.com/cosmictaserdev-creator/Convx",
+    "description": "",
+    "language": "Kotlin",
+    "stars_total": 144,
+    "stars_gained": 34,
+    "forks_total": 4,
+    "forks_gained": 0,
+    "created_at": "2026-07-23T08:19:17Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 5,
+    "score": 230,
+    "full_name": "RikkaApps/Shizuku",
+    "github_url": "https://github.com/RikkaApps/Shizuku",
+    "description": "Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process.",
+    "language": "Kotlin",
+    "stars_total": 28747,
+    "stars_gained": 52,
+    "forks_total": 2685,
+    "forks_gained": 7,
+    "created_at": "2017-05-24T13:53:49Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 6,
+    "score": 194,
+    "full_name": "mhss1/MyBrain",
+    "github_url": "https://github.com/mhss1/MyBrain",
+    "description": "All-in-one productivity app and AI assistant with Tasks, Notes, Calendar, Diary and Bookmarks.",
+    "language": "Kotlin",
+    "stars_total": 2168,
+    "stars_gained": 23,
+    "forks_total": 190,
+    "forks_gained": 5,
+    "created_at": "2022-05-11T17:06:31Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 7,
+    "score": 184,
+    "full_name": "Jasonzhu1207/ZenConverter",
+    "github_url": "https://github.com/Jasonzhu1207/ZenConverter",
+    "description": "Local Android file converter built with Kotlin and Jetpack Compose. Convert files on device, with no ads, accounts, or upload-based fallback.",
+    "language": "Kotlin",
+    "stars_total": 526,
+    "stars_gained": 23,
+    "forks_total": 8,
+    "forks_gained": 0,
+    "created_at": "2026-07-09T09:29:10Z",
+    "tags": [
+      "file-management"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 8,
+    "score": 164,
+    "full_name": "Mangi-11/Eta",
+    "github_url": "https://github.com/Mangi-11/Eta",
+    "description": "可能是目前最强大的系统级 Android AI Agent。结合系统底层 API 调用、GUI Agent 与 Root/Linux 环境，打破设备能力上限 || Arguably the most powerful system-level Android AI Agent. Combining system low-level API calls, GUI Agent, and Root/Linux to shatter device capability limits.",
+    "language": "Kotlin",
+    "stars_total": 1044,
+    "stars_gained": 25,
+    "forks_total": 88,
+    "forks_gained": 4,
+    "created_at": "2026-03-26T16:07:24Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 9,
+    "score": 152,
+    "full_name": "AAswordman/Operit",
+    "github_url": "https://github.com/AAswordman/Operit",
+    "description": "The most powerful AI agent and AI chat software on Android/Operit是一款Android上能力最为强大、发展最久的AI Agent",
+    "language": "Kotlin",
+    "stars_total": 6788,
+    "stars_gained": 36,
+    "forks_total": 584,
+    "forks_gained": 3,
+    "created_at": "2025-03-15T04:24:12Z",
+    "tags": [
+      "ai-agent",
+      "chatbot"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 10,
+    "score": 143,
+    "full_name": "JunkFood02/Seal",
+    "github_url": "https://github.com/JunkFood02/Seal",
+    "description": "🦭 Video/Audio Downloader for Android, based on yt-dlp",
+    "language": "Kotlin",
+    "stars_total": 28135,
+    "stars_gained": 29,
+    "forks_total": 1291,
+    "forks_gained": 3,
+    "created_at": "2022-04-15T01:15:25Z",
+    "tags": [
+      "web-scraping"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 11,
+    "score": 138,
+    "full_name": "openmmo-org/OpenMMO",
+    "github_url": "https://github.com/openmmo-org/OpenMMO",
+    "description": "",
+    "language": "Kotlin",
+    "stars_total": 232,
+    "stars_gained": 17,
+    "forks_total": 59,
+    "forks_gained": 1,
+    "created_at": "2026-05-25T14:56:34Z",
+    "tags": [
+      "game-development"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 12,
+    "score": 137,
+    "full_name": "MetaCubeX/ClashMetaForAndroid",
+    "github_url": "https://github.com/MetaCubeX/ClashMetaForAndroid",
+    "description": "A rule-based tunnel for Android.",
+    "language": "Kotlin",
+    "stars_total": 44463,
+    "stars_gained": 40,
+    "forks_total": 2846,
+    "forks_gained": 1,
+    "created_at": "2022-06-07T06:38:00Z",
+    "tags": [
+      "proxy"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 13,
+    "score": 135,
+    "full_name": "A-EDev/Flow",
+    "github_url": "https://github.com/A-EDev/Flow",
+    "description": "A modern, feature-rich YouTube and YouTube  Music client with local recommendation for Android built with Jetpack Compose",
+    "language": "Kotlin",
+    "stars_total": 1857,
+    "stars_gained": 19,
+    "forks_total": 84,
+    "forks_gained": 0,
+    "created_at": "2025-10-19T15:37:26Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 14,
+    "score": 120,
+    "full_name": "YashBhadange2006/TinyAI",
+    "github_url": "https://github.com/YashBhadange2006/TinyAI",
+    "description": "On-device AI assistant for Android built with Kotlin, featuring local LLM inference, offline AI capabilities, and edge AI experimentation.",
+    "language": "Kotlin",
+    "stars_total": 26,
+    "stars_gained": 15,
+    "forks_total": 3,
+    "forks_gained": 0,
+    "created_at": "2026-05-01T08:40:31Z",
+    "tags": [
+      "ai-agent",
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 15,
+    "score": 117,
+    "full_name": "madeye/ad-skipper",
+    "github_url": "https://github.com/madeye/ad-skipper",
+    "description": "Local VLM-based Android splash-ad skipper: accessibility service + three-tier detection (node match -> OCR -> llama.cpp GGUF VLM grounding)",
+    "language": "Kotlin",
+    "stars_total": 105,
+    "stars_gained": 20,
+    "forks_total": 3,
+    "forks_gained": 3,
+    "created_at": "2026-08-07T00:50:39Z",
+    "tags": [
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 16,
+    "score": 115,
+    "full_name": "mihonapp/mihon",
+    "github_url": "https://github.com/mihonapp/mihon",
+    "description": "Free and open source manga reader for Android",
+    "language": "Kotlin",
+    "stars_total": 22770,
+    "stars_gained": 28,
+    "forks_total": 1402,
+    "forks_gained": 0,
+    "created_at": "2024-01-15T20:03:57Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 17,
+    "score": 113,
+    "full_name": "ReVanced/revanced-manager",
+    "github_url": "https://github.com/ReVanced/revanced-manager",
+    "description": "💊 Application to use ReVanced on Android ",
+    "language": "Kotlin",
+    "stars_total": 28965,
+    "stars_gained": 20,
+    "forks_total": 1108,
+    "forks_gained": 0,
+    "created_at": "2022-03-18T19:38:55Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 18,
+    "score": 113,
+    "full_name": "rikkahub/rikkahub",
+    "github_url": "https://github.com/rikkahub/rikkahub",
+    "description": "RikkaHub is an Android APP that supports for multiple LLM providers.",
+    "language": "Kotlin",
+    "stars_total": 6824,
+    "stars_gained": 26,
+    "forks_total": 593,
+    "forks_gained": 4,
+    "created_at": "2025-03-11T14:46:55Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 19,
+    "score": 110,
+    "full_name": "gedoor/legado",
+    "github_url": "https://github.com/gedoor/legado",
+    "description": "Legado 3.0 Book Reader with powerful controls & full functions❤️阅读3.0, 阅读是一款可以自定义来源阅读网络内容的工具，为广大网络文学爱好者提供一种方便、快捷舒适的试读体验。",
+    "language": "Kotlin",
+    "stars_total": 46980,
+    "stars_gained": 13,
+    "forks_total": 5403,
+    "forks_gained": 3,
+    "created_at": "2019-05-22T04:18:58Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 20,
+    "score": 108,
+    "full_name": "permissionlesstech/bitchat-android",
+    "github_url": "https://github.com/permissionlesstech/bitchat-android",
+    "description": "decentralized mesh chat",
+    "language": "Kotlin",
+    "stars_total": 7439,
+    "stars_gained": 22,
+    "forks_total": 1823,
+    "forks_gained": 4,
+    "created_at": "2025-07-08T18:36:23Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 21,
+    "score": 106,
+    "full_name": "misaka10032w/Han1meViewer",
+    "github_url": "https://github.com/misaka10032w/Han1meViewer",
+    "description": "hanime1的三方客户端，提高了一些播放体验",
+    "language": "Kotlin",
+    "stars_total": 352,
+    "stars_gained": 28,
+    "forks_total": 294,
+    "forks_gained": 1,
+    "created_at": "2025-06-05T04:34:44Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 22,
+    "score": 104,
+    "full_name": "open-ani/animeko",
+    "github_url": "https://github.com/open-ani/animeko",
+    "description": "集找番、追番、看番的一站式弹幕追番平台，云收藏同步 (Bangumi)，离线缓存，BitTorrent，弹幕云过滤。100% Kotlin/Compose Multiplatform",
+    "language": "Kotlin",
+    "stars_total": 19504,
+    "stars_gained": 24,
+    "forks_total": 547,
+    "forks_gained": 2,
+    "created_at": "2022-07-31T17:38:49Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 23,
+    "score": 104,
+    "full_name": "daxiaamu/Guise_Reborn",
+    "github_url": "https://github.com/daxiaamu/Guise_Reborn",
+    "description": "New Guise",
+    "language": "Kotlin",
+    "stars_total": 102,
+    "stars_gained": 13,
+    "forks_total": 7,
+    "forks_gained": 0,
+    "created_at": "2026-07-31T15:10:19Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 24,
+    "score": 97,
+    "full_name": "yashab-cyber/opendroid",
+    "github_url": "https://github.com/yashab-cyber/opendroid",
+    "description": "Your Open Autonomous Android Agent — A production-ready, self-planning AI assistant powered by local/remote LLMs and accessibility-driven screen automation.",
+    "language": "Kotlin",
+    "stars_total": 602,
+    "stars_gained": 13,
+    "forks_total": 90,
+    "forks_gained": 1,
+    "created_at": "2026-05-21T10:38:16Z",
+    "tags": [
+      "ai-agent",
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 25,
+    "score": 92,
+    "full_name": "MorpheApp/morphe-manager",
+    "github_url": "https://github.com/MorpheApp/morphe-manager",
+    "description": "Morphe app patcher for Android",
+    "language": "Kotlin",
+    "stars_total": 7058,
+    "stars_gained": 22,
+    "forks_total": 167,
+    "forks_gained": 0,
+    "created_at": "2025-11-26T16:29:57Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Kotlin"
+  }
+]

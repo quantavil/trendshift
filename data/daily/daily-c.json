@@ -1,0 +1,549 @@
+[
+  {
+    "period_key": "2026-08-12",
+    "rank": 1,
+    "score": 1953,
+    "full_name": "antirez/h3.c",
+    "github_url": "https://github.com/antirez/h3.c",
+    "description": "MiniMax H3 inference engine for Mac computers",
+    "language": "C",
+    "stars_total": 1562,
+    "stars_gained": 351,
+    "forks_total": 83,
+    "forks_gained": 26,
+    "created_at": "2026-08-09T09:12:47Z",
+    "tags": [
+      "ai-video"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 2,
+    "score": 819,
+    "full_name": "FareedKhan-dev/kimi-k3-in-c",
+    "github_url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+    "description": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
+    "language": "C",
+    "stars_total": 5128,
+    "stars_gained": 246,
+    "forks_total": 820,
+    "forks_gained": 44,
+    "created_at": "2026-08-01T09:29:38Z",
+    "tags": [
+      "nlp",
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 3,
+    "score": 711,
+    "full_name": "JustVugg/colibri",
+    "github_url": "https://github.com/JustVugg/colibri",
+    "description": "Run GLM-5.2 (744B MoE) on a 25GB-RAM consumer machine — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. 🐦",
+    "language": "C",
+    "stars_total": 24291,
+    "stars_gained": 200,
+    "forks_total": 2689,
+    "forks_gained": 20,
+    "created_at": "2026-07-01T12:27:49Z",
+    "tags": [
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 4,
+    "score": 573,
+    "full_name": "colbymchenry/codegraph",
+    "github_url": "https://github.com/colbymchenry/codegraph",
+    "description": "Pre-indexed code knowledge graph, auto syncs on code changes, for Claude Code, Codex, Gemini, Cursor, OpenCode, AntiGravity, Kiro, and Hermes Agent — fewer tokens, fewer tool calls, 100% local",
+    "language": "C",
+    "stars_total": 66083,
+    "stars_gained": 158,
+    "forks_total": 4313,
+    "forks_gained": 12,
+    "created_at": "2026-01-18T21:45:37Z",
+    "tags": [
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 5,
+    "score": 418,
+    "full_name": "torvalds/linux",
+    "github_url": "https://github.com/torvalds/linux",
+    "description": "Linux kernel source tree",
+    "language": "C",
+    "stars_total": 242622,
+    "stars_gained": 105,
+    "forks_total": 55572,
+    "forks_gained": 26,
+    "created_at": "2011-09-04T22:48:12Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 6,
+    "score": 390,
+    "full_name": "DeusData/codebase-memory-mcp",
+    "github_url": "https://github.com/DeusData/codebase-memory-mcp",
+    "description": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 158 languages, sub-ms queries, 99% fewer tokens. Single static binary, zero dependencies.",
+    "language": "C",
+    "stars_total": 38688,
+    "stars_gained": 113,
+    "forks_total": 3315,
+    "forks_gained": 3,
+    "created_at": "2026-02-24T22:01:00Z",
+    "tags": [
+      "ai-coding",
+      "ai-infrastructure",
+      "mcp"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 7,
+    "score": 318,
+    "full_name": "YuKongA/ghostlock-app",
+    "github_url": "https://github.com/YuKongA/ghostlock-app",
+    "description": "GhostLock One-Tap Execution App",
+    "language": "C",
+    "stars_total": 237,
+    "stars_gained": 38,
+    "forks_total": 83,
+    "forks_gained": 7,
+    "created_at": "2026-07-29T05:04:25Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 8,
+    "score": 308,
+    "full_name": "forcequitOS/bad_query",
+    "github_url": "https://github.com/forcequitOS/bad_query",
+    "description": "Sandbox escape PoC for iOS 26 and 27.",
+    "language": "C",
+    "stars_total": 131,
+    "stars_gained": 38,
+    "forks_total": 19,
+    "forks_gained": 2,
+    "created_at": "2026-08-11T00:07:31Z",
+    "tags": [
+      "pentesting"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 9,
+    "score": 272,
+    "full_name": "Zorkats/G-Diffuser",
+    "github_url": "https://github.com/Zorkats/G-Diffuser",
+    "description": "Unofficial PC Port of F-Zero X based on the decompilation of inspectredc.",
+    "language": "C",
+    "stars_total": 180,
+    "stars_gained": 34,
+    "forks_total": 1,
+    "forks_gained": 0,
+    "created_at": "2026-06-20T21:09:55Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 10,
+    "score": 255,
+    "full_name": "OleksandrChekhovskyi/hax",
+    "github_url": "https://github.com/OleksandrChekhovskyi/hax",
+    "description": "A minimalist, terminal-native coding agent written in C.",
+    "language": "C",
+    "stars_total": 106,
+    "stars_gained": 42,
+    "forks_total": 3,
+    "forks_gained": 2,
+    "created_at": "2026-04-24T12:12:50Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 11,
+    "score": 248,
+    "full_name": "jmarshall23/msword",
+    "github_url": "https://github.com/jmarshall23/msword",
+    "description": "Port of Microsoft Word 1.1a to x64 with extra features for research purposes.",
+    "language": "C",
+    "stars_total": 324,
+    "stars_gained": 51,
+    "forks_total": 30,
+    "forks_gained": 6,
+    "created_at": "2026-08-06T15:00:59Z",
+    "tags": [
+      "document-processing"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 12,
+    "score": 240,
+    "full_name": "bryanthaboi/gen1recomp",
+    "github_url": "https://github.com/bryanthaboi/gen1recomp",
+    "description": "Pokemon Gen 1 Recompilation Project - A native Lua / LÖVE2D recreation of Gen 1 Pokemon ",
+    "language": "C",
+    "stars_total": 2992,
+    "stars_gained": 76,
+    "forks_total": 263,
+    "forks_gained": 5,
+    "created_at": "2026-07-18T00:29:27Z",
+    "tags": [
+      "emulator"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 13,
+    "score": 231,
+    "full_name": "obsproject/obs-studio",
+    "github_url": "https://github.com/obsproject/obs-studio",
+    "description": "OBS Studio - Free and open source software for live streaming and screen recording",
+    "language": "C",
+    "stars_total": 74909,
+    "stars_gained": 50,
+    "forks_total": 9632,
+    "forks_gained": 20,
+    "created_at": "2013-10-01T02:40:31Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 14,
+    "score": 211,
+    "full_name": "antirez/ds4",
+    "github_url": "https://github.com/antirez/ds4",
+    "description": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
+    "language": "C",
+    "stars_total": 21256,
+    "stars_gained": 61,
+    "forks_total": 1958,
+    "forks_gained": 9,
+    "created_at": "2026-05-06T17:17:05Z",
+    "tags": [
+      "ai-infrastructure",
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 15,
+    "score": 195,
+    "full_name": "Genymobile/scrcpy",
+    "github_url": "https://github.com/Genymobile/scrcpy",
+    "description": "Display and control your Android device",
+    "language": "C",
+    "stars_total": 147502,
+    "stars_gained": 53,
+    "forks_total": 13483,
+    "forks_gained": 6,
+    "created_at": "2017-11-21T18:00:27Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 16,
+    "score": 168,
+    "full_name": "Nexting-ai/nexting",
+    "github_url": "https://github.com/Nexting-ai/nexting",
+    "description": "Remote control for Claude Code and Codex on Mac or PC. View sessions, send tasks, and drive them remotely from your phone, PIN, or Ring. OpenClaw supported.",
+    "language": "C",
+    "stars_total": 713,
+    "stars_gained": 21,
+    "forks_total": 8,
+    "forks_gained": 0,
+    "created_at": "2026-03-10T08:15:23Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 17,
+    "score": 146,
+    "full_name": "memovai/mimiclaw",
+    "github_url": "https://github.com/memovai/mimiclaw",
+    "description": "MimiClaw: Harness on a $5 chip. No OS(Linux). No Node.js. No Mac mini. No Raspberry Pi. No VPS. Hardware agents OS.",
+    "language": "C",
+    "stars_total": 5647,
+    "stars_gained": 18,
+    "forks_total": 819,
+    "forks_gained": 1,
+    "created_at": "2026-02-04T04:25:33Z",
+    "tags": [
+      "ai-agent",
+      "iot"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 18,
+    "score": 145,
+    "full_name": "ExoCore-Kernel/Juice",
+    "github_url": "https://github.com/ExoCore-Kernel/Juice",
+    "description": "Wine-based iOS application runtime with JuiceGUI and experimental x86-64 translation",
+    "language": "C",
+    "stars_total": 33,
+    "stars_gained": 24,
+    "forks_total": 1,
+    "forks_gained": 1,
+    "created_at": "2026-08-11T07:08:45Z",
+    "tags": [
+      "emulator"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 19,
+    "score": 134,
+    "full_name": "apache/cloudberry",
+    "github_url": "https://github.com/apache/cloudberry",
+    "description": "One advanced and mature open-source MPP (Massively Parallel Processing) database. Open source alternative to Greenplum Database.",
+    "language": "C",
+    "stars_total": 1308,
+    "stars_gained": 17,
+    "forks_total": 237,
+    "forks_gained": 2,
+    "created_at": "2023-05-24T06:58:16Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 20,
+    "score": 133,
+    "full_name": "FFmpeg/FFmpeg",
+    "github_url": "https://github.com/FFmpeg/FFmpeg",
+    "description": "Mirror of https://git.ffmpeg.org/ffmpeg.git",
+    "language": "C",
+    "stars_total": 63237,
+    "stars_gained": 38,
+    "forks_total": 12324,
+    "forks_gained": 7,
+    "created_at": "2011-04-14T14:12:38Z",
+    "tags": [
+      "video-editing",
+      "audio-processing"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 21,
+    "score": 131,
+    "full_name": "crosspoint-reader/crosspoint-reader",
+    "github_url": "https://github.com/crosspoint-reader/crosspoint-reader",
+    "description": "Firmware for the Xteink X3 and X4 e-readers",
+    "language": "C",
+    "stars_total": 7010,
+    "stars_gained": 29,
+    "forks_total": 1161,
+    "forks_gained": 7,
+    "created_at": "2025-12-03T11:01:12Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 22,
+    "score": 120,
+    "full_name": "espkvm/espkvm",
+    "github_url": "https://github.com/espkvm/espkvm",
+    "description": "IP-KVM on the ESP32-P4: HDMI capture, USB keyboard and mouse, and a browser console over HTTPS",
+    "language": "C",
+    "stars_total": 181,
+    "stars_gained": 15,
+    "forks_total": 10,
+    "forks_gained": 0,
+    "created_at": "2026-07-22T20:25:01Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 23,
+    "score": 120,
+    "full_name": "nuta/operating-system-in-1000-lines",
+    "github_url": "https://github.com/nuta/operating-system-in-1000-lines",
+    "description": "Writing an OS in 1,000 lines.",
+    "language": "C",
+    "stars_total": 3573,
+    "stars_gained": 15,
+    "forks_total": 288,
+    "forks_gained": 0,
+    "created_at": "2023-07-26T02:22:30Z",
+    "tags": [
+      "programming-examples"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 24,
+    "score": 115,
+    "full_name": "xoreaxeaxeax/mmiotic",
+    "github_url": "https://github.com/xoreaxeaxeax/mmiotic",
+    "description": "Latency x-ray for undocumented hardware",
+    "language": "C",
+    "stars_total": 87,
+    "stars_gained": 19,
+    "forks_total": 5,
+    "forks_gained": 1,
+    "created_at": "2026-08-06T00:05:39Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 25,
+    "score": 105,
+    "full_name": "microsoft/PowerToys",
+    "github_url": "https://github.com/microsoft/PowerToys",
+    "description": "Microsoft PowerToys is a collection of utilities that supercharge productivity and customization on Windows",
+    "language": "C",
+    "stars_total": 137696,
+    "stars_gained": 27,
+    "forks_total": 8660,
+    "forks_gained": 2,
+    "created_at": "2019-05-01T17:44:02Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C"
+  }
+]

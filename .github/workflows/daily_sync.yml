@@ -1,0 +1,70 @@
+name: Daily Trendshift Sync
+
+on:
+  schedule:
+    - cron: '17 20 * * *' # Primary run at 20:17 UTC (end-of-day peak)
+    - cron: '43 23 * * *' # Backup run at 23:43 UTC (pre-midnight finalization)
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: 'Run full historical backfill instead of daily sync'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install dependencies
+        run: uv pip install --system 'httpx>=0.27,<1'
+
+      - name: Download existing DB from release
+        run: |
+          if gh release view db-latest >/dev/null 2>&1; then
+            echo "Release db-latest found. Downloading trendshift.db..."
+            gh release download db-latest --pattern trendshift.db --clobber
+          else
+            echo "First run ever: no existing db-latest release found."
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run sync
+        run: |
+          if [ "${{ inputs.backfill }}" = "true" ]; then
+            python3 src/backfill.py
+          else
+            python3 src/sync_daily.py
+          fi
+
+      - name: Commit JSON exports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "sync: $(date -u +%Y-%m-%d)" || echo "No changes"
+          git push origin main
+
+      - name: Upload DB to release
+        uses: softprops/action-gh-release@v2
+        if: success()
+        with:
+          tag_name: db-latest
+          name: "Trendshift SQLite Database"
+          body: "Latest trendshift.db updated daily via GitHub Actions."
+          files: trendshift.db
+          fail_on_unmatched_files: false

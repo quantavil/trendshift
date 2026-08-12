@@ -1,0 +1,552 @@
+[
+  {
+    "period_key": "2026-08-12",
+    "rank": 1,
+    "score": 5166,
+    "full_name": "LaoFeng-mouse/flyingmouse-format",
+    "github_url": "https://github.com/LaoFeng-mouse/flyingmouse-format",
+    "description": "飞鼠格式 FlyingMouse Format - Windows 万能文件格式转换工具（离线可用，内置 FFmpeg/LibreOffice/Poppler/Tesseract）。图片/文档/表格/PPT/PDF/音视频/WPS 格式互转 + OCR + 批量转换",
+    "language": "JavaScript",
+    "stars_total": 851,
+    "stars_gained": 634,
+    "forks_total": 57,
+    "forks_gained": 47,
+    "created_at": "2026-08-06T03:59:32Z",
+    "tags": [
+      "document-processing"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 2,
+    "score": 2467,
+    "full_name": "DietrichGebert/ponytail",
+    "github_url": "https://github.com/DietrichGebert/ponytail",
+    "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+    "language": "JavaScript",
+    "stars_total": 101442,
+    "stars_gained": 640,
+    "forks_total": 5760,
+    "forks_gained": 34,
+    "created_at": "2026-06-12T00:52:37Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 3,
+    "score": 2366,
+    "full_name": "eternityspring/shuohao-skills",
+    "github_url": "https://github.com/eternityspring/shuohao-skills",
+    "description": "给 AI 编码 agent 用的 skill 集合，Claude Code 和 codex 都能跑。novel-characters：把小说拆成角色设定集——人物画像、卡通形象提示词、音色提示词、三视图。 | Skills for AI coding agents, working in both Claude Code and codex. novel-characters turns a novel into a character bible: profiles, cartoon-design prompts, voice prompts and turnaround sheets.",
+    "language": "JavaScript",
+    "stars_total": 1154,
+    "stars_gained": 289,
+    "forks_total": 132,
+    "forks_gained": 27,
+    "created_at": "2026-08-06T10:38:49Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 4,
+    "score": 1754,
+    "full_name": "zarazhangrui/youtube-digest",
+    "github_url": "https://github.com/zarazhangrui/youtube-digest",
+    "description": "Turn YouTube videos into deep learning resources with transcripts, bilingual translation, AI overviews, explanations, and notes. Bring your own keys.",
+    "language": "JavaScript",
+    "stars_total": 310,
+    "stars_gained": 213,
+    "forks_total": 39,
+    "forks_gained": 25,
+    "created_at": "2026-03-13T03:39:00Z",
+    "tags": [
+      "nlp",
+      "ai-translation"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 5,
+    "score": 1456,
+    "full_name": "ToolJet/ToolJet",
+    "github_url": "https://github.com/ToolJet/ToolJet",
+    "description": "ToolJet is the open-source foundation of ToolJet AI - the enterprise app generation platform for building internal tools, dashboard, business applications, workflows and AI agents 🚀",
+    "language": "JavaScript",
+    "stars_total": 38561,
+    "stars_gained": 178,
+    "forks_total": 5283,
+    "forks_gained": 12,
+    "created_at": "2021-03-30T08:51:34Z",
+    "tags": [
+      "ai-agent",
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 6,
+    "score": 1276,
+    "full_name": "Leonxlnx/taste-skill",
+    "github_url": "https://github.com/Leonxlnx/taste-skill",
+    "description": "Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop ",
+    "language": "JavaScript",
+    "stars_total": 75790,
+    "stars_gained": 367,
+    "forks_total": 5328,
+    "forks_gained": 19,
+    "created_at": "2026-02-19T21:44:05Z",
+    "tags": [
+      "ai-agent",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 7,
+    "score": 1170,
+    "full_name": "petergyang/human-review",
+    "github_url": "https://github.com/petergyang/human-review",
+    "description": "A visual tool to edit HTML and Markdown files, leave comments like a Google Doc, and send feedback to your AI agent. Works inside your favorite AI harness.",
+    "language": "JavaScript",
+    "stars_total": 862,
+    "stars_gained": 145,
+    "forks_total": 50,
+    "forks_gained": 5,
+    "created_at": "2026-07-27T14:58:36Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 8,
+    "score": 1076,
+    "full_name": "mekos2772/ios-location-spoofer",
+    "github_url": "https://github.com/mekos2772/ios-location-spoofer",
+    "description": "Standalone iOS app to spoof GPS location without jailbreak. Includes Shadowrocket/Surge/Loon/QX/Stash module.",
+    "language": "JavaScript",
+    "stars_total": 3233,
+    "stars_gained": 131,
+    "forks_total": 519,
+    "forks_gained": 14,
+    "created_at": "2026-06-30T11:20:30Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 9,
+    "score": 1009,
+    "full_name": "addyosmani/agent-skills",
+    "github_url": "https://github.com/addyosmani/agent-skills",
+    "description": "Production-grade engineering skills for AI coding agents.",
+    "language": "JavaScript",
+    "stars_total": 86524,
+    "stars_gained": 329,
+    "forks_total": 9517,
+    "forks_gained": 26,
+    "created_at": "2026-02-15T20:20:26Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 10,
+    "score": 965,
+    "full_name": "affaan-m/ECC",
+    "github_url": "https://github.com/affaan-m/ECC",
+    "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+    "language": "JavaScript",
+    "stars_total": 239706,
+    "stars_gained": 241,
+    "forks_total": 37483,
+    "forks_gained": 29,
+    "created_at": "2026-01-18T00:51:51Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 11,
+    "score": 931,
+    "full_name": "pbakaus/impeccable",
+    "github_url": "https://github.com/pbakaus/impeccable",
+    "description": "The design language that makes your AI harness better at design.",
+    "language": "JavaScript",
+    "stars_total": 58523,
+    "stars_gained": 280,
+    "forks_total": 3813,
+    "forks_gained": 15,
+    "created_at": "2025-11-16T01:52:04Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 12,
+    "score": 886,
+    "full_name": "panel-zeus/Z-E-U-S",
+    "github_url": "https://github.com/panel-zeus/Z-E-U-S",
+    "description": "",
+    "language": "JavaScript",
+    "stars_total": 166,
+    "stars_gained": 110,
+    "forks_total": 9,
+    "forks_gained": 3,
+    "created_at": "2026-08-09T02:53:39Z",
+    "tags": [
+      "proxy"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 13,
+    "score": 798,
+    "full_name": "achrefelouafi/LinearAbiltyCastingThreeJS",
+    "github_url": "https://github.com/achrefelouafi/LinearAbiltyCastingThreeJS",
+    "description": "",
+    "language": "JavaScript",
+    "stars_total": 417,
+    "stars_gained": 96,
+    "forks_total": 70,
+    "forks_gained": 15,
+    "created_at": "2026-08-06T22:44:53Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 14,
+    "score": 743,
+    "full_name": "sophiamyang/finger-frame-effect-ai",
+    "github_url": "https://github.com/sophiamyang/finger-frame-effect-ai",
+    "description": "",
+    "language": "JavaScript",
+    "stars_total": 859,
+    "stars_gained": 113,
+    "forks_total": 105,
+    "forks_gained": 13,
+    "created_at": "2026-08-02T21:58:43Z",
+    "tags": [
+      "computer-vision",
+      "ai-video"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 15,
+    "score": 615,
+    "full_name": "cmliu/edgetunnel",
+    "github_url": "https://github.com/cmliu/edgetunnel",
+    "description": "edgetunnel2 VLESS/Trojan/SS 多功能面板",
+    "language": "JavaScript",
+    "stars_total": 42487,
+    "stars_gained": 110,
+    "forks_total": 37000,
+    "forks_gained": 57,
+    "created_at": "2023-12-27T15:37:22Z",
+    "tags": [
+      "proxy"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 16,
+    "score": 592,
+    "full_name": "citrolabs/ego-lite",
+    "github_url": "https://github.com/citrolabs/ego-lite",
+    "description": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your AI agents, like Codex or Claude Code, without disturbing you. Zero cost, zero config.",
+    "language": "JavaScript",
+    "stars_total": 9751,
+    "stars_gained": 156,
+    "forks_total": 498,
+    "forks_gained": 12,
+    "created_at": "2026-04-16T12:51:09Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 17,
+    "score": 573,
+    "full_name": "chuspeeism/dashi-taskboard",
+    "github_url": "https://github.com/chuspeeism/dashi-taskboard",
+    "description": "",
+    "language": "JavaScript",
+    "stars_total": 1852,
+    "stars_gained": 142,
+    "forks_total": 252,
+    "forks_gained": 17,
+    "created_at": "2026-07-24T14:14:07Z",
+    "tags": [
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 18,
+    "score": 572,
+    "full_name": "duolahypercho/codex-router",
+    "github_url": "https://github.com/duolahypercho/codex-router",
+    "description": "External-model router for Codex with guided Kimi OAuth/API, DeepSeek, safe migration, and rollback.",
+    "language": "JavaScript",
+    "stars_total": 1996,
+    "stars_gained": 159,
+    "forks_total": 148,
+    "forks_gained": 9,
+    "created_at": "2026-07-19T23:16:41Z",
+    "tags": [
+      "ai-infrastructure"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 19,
+    "score": 546,
+    "full_name": "50kg/image-to-slice",
+    "github_url": "https://github.com/50kg/image-to-slice",
+    "description": "AI 拆图、被遮挡背景补齐、人工校准、导入可编辑 Figma 图层、导出 HTML/CSS",
+    "language": "JavaScript",
+    "stars_total": 166,
+    "stars_gained": 66,
+    "forks_total": 29,
+    "forks_gained": 9,
+    "created_at": "2026-08-10T15:29:27Z",
+    "tags": [
+      "ai-image",
+      "image-editing"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 20,
+    "score": 518,
+    "full_name": "asuojun/claude-vision-skill",
+    "github_url": "https://github.com/asuojun/claude-vision-skill",
+    "description": "",
+    "language": "JavaScript",
+    "stars_total": 1878,
+    "stars_gained": 64,
+    "forks_total": 89,
+    "forks_gained": 3,
+    "created_at": "2026-05-02T09:36:28Z",
+    "tags": [
+      "ai-skills"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 21,
+    "score": 492,
+    "full_name": "ling-kong-ran/pisper",
+    "github_url": "https://github.com/ling-kong-ran/pisper",
+    "description": "Local-first multi-agent workspace for parallel sessions, tools, memory, workflows, desktop, and terminal.",
+    "language": "JavaScript",
+    "stars_total": 165,
+    "stars_gained": 61,
+    "forks_total": 7,
+    "forks_gained": 2,
+    "created_at": "2026-07-19T16:07:07Z",
+    "tags": [
+      "ai-agent",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 22,
+    "score": 464,
+    "full_name": "evan-steinhilb/md2hd",
+    "github_url": "https://github.com/evan-steinhilb/md2hd",
+    "description": "Markdown, mapped — the md2hd CLI. Point it at markdown notes and read the map in your browser.",
+    "language": "JavaScript",
+    "stars_total": 60,
+    "stars_gained": 56,
+    "forks_total": 9,
+    "forks_gained": 8,
+    "created_at": "2026-08-11T15:39:44Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 23,
+    "score": 456,
+    "full_name": "imxv/Pretty-mermaid-skills",
+    "github_url": "https://github.com/imxv/Pretty-mermaid-skills",
+    "description": "To provide AI with Mermaid chart rendering capability, supporting both SVG and ASCII output formats",
+    "language": "JavaScript",
+    "stars_total": 856,
+    "stars_gained": 57,
+    "forks_total": 42,
+    "forks_gained": 0,
+    "created_at": "2026-01-30T06:41:40Z",
+    "tags": [
+      "ai-skills"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 24,
+    "score": 448,
+    "full_name": "laogou717/md-wechat",
+    "github_url": "https://github.com/laogou717/md-wechat",
+    "description": "WeChat Markdown editor & formatter｜公众号 Markdown 排版工具：26 套主题一键换肤、实时预览、复制即得富文本",
+    "language": "JavaScript",
+    "stars_total": 117,
+    "stars_gained": 51,
+    "forks_total": 31,
+    "forks_gained": 20,
+    "created_at": "2026-08-04T16:56:55Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 25,
+    "score": 408,
+    "full_name": "tanevanwifferen/pi-mail",
+    "github_url": "https://github.com/tanevanwifferen/pi-mail",
+    "description": "",
+    "language": "JavaScript",
+    "stars_total": 53,
+    "stars_gained": 51,
+    "forks_total": 0,
+    "forks_gained": 0,
+    "created_at": "2026-06-11T12:32:22Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "JavaScript"
+  }
+]

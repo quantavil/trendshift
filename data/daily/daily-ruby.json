@@ -1,0 +1,531 @@
+[
+  {
+    "period_key": "2026-08-12",
+    "rank": 1,
+    "score": 160,
+    "full_name": "blackcandy-org/blackcandy",
+    "github_url": "https://github.com/blackcandy-org/blackcandy",
+    "description": "A self hosted music streaming server",
+    "language": "Ruby",
+    "stars_total": 4356,
+    "stars_gained": 20,
+    "forks_total": 218,
+    "forks_gained": 0,
+    "created_at": "2018-02-07T06:51:06Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 2,
+    "score": 114,
+    "full_name": "chatwoot/chatwoot",
+    "github_url": "https://github.com/chatwoot/chatwoot",
+    "description": "Open-source live-chat, email support, omni-channel desk. An alternative to Intercom, Zendesk, Salesforce Service Cloud etc. 🔥💬",
+    "language": "Ruby",
+    "stars_total": 35758,
+    "stars_gained": 29,
+    "forks_total": 8632,
+    "forks_gained": 8,
+    "created_at": "2019-08-14T06:50:51Z",
+    "tags": [
+      "chatbot",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 3,
+    "score": 101,
+    "full_name": "Homebrew/brew",
+    "github_url": "https://github.com/Homebrew/brew",
+    "description": "🍺 The Package Manager for Everywhere",
+    "language": "Ruby",
+    "stars_total": 49137,
+    "stars_gained": 18,
+    "forks_total": 11319,
+    "forks_gained": 2,
+    "created_at": "2016-03-06T05:08:38Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 4,
+    "score": 67,
+    "full_name": "discourse/discourse",
+    "github_url": "https://github.com/discourse/discourse",
+    "description": "A platform for community discussion. Free, open, simple.",
+    "language": "Ruby",
+    "stars_total": 47642,
+    "stars_gained": 10,
+    "forks_total": 8762,
+    "forks_gained": 1,
+    "created_at": "2013-01-12T00:25:55Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 5,
+    "score": 54,
+    "full_name": "Homebrew/homebrew-core",
+    "github_url": "https://github.com/Homebrew/homebrew-core",
+    "description": "🍻 Default and OSS formulae (built-from-source packages) for the package manager for everywhere",
+    "language": "Ruby",
+    "stars_total": 15494,
+    "stars_gained": 3,
+    "forks_total": 13719,
+    "forks_gained": 5,
+    "created_at": "2016-03-01T06:58:36Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 6,
+    "score": 42,
+    "full_name": "basecamp/fizzy",
+    "github_url": "https://github.com/basecamp/fizzy",
+    "description": "Kanban as it should be. Not as it has been.",
+    "language": "Ruby",
+    "stars_total": 8057,
+    "stars_gained": 7,
+    "forks_total": 1204,
+    "forks_gained": 0,
+    "created_at": "2024-06-21T15:43:29Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 7,
+    "score": 37,
+    "full_name": "huginn/huginn",
+    "github_url": "https://github.com/huginn/huginn",
+    "description": "Create agents that monitor and act on your behalf.  Your agents are standing by!",
+    "language": "Ruby",
+    "stars_total": 49779,
+    "stars_gained": 7,
+    "forks_total": 4285,
+    "forks_gained": 0,
+    "created_at": "2013-03-10T06:00:31Z",
+    "tags": [
+      "ai-agent",
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 8,
+    "score": 36,
+    "full_name": "Homebrew/homebrew-cask",
+    "github_url": "https://github.com/Homebrew/homebrew-cask",
+    "description": "🍻 Default casks (upstream binary packages) for the package manager for everywhere",
+    "language": "Ruby",
+    "stars_total": 22160,
+    "stars_gained": 2,
+    "forks_total": 11963,
+    "forks_gained": 0,
+    "created_at": "2012-03-05T02:05:17Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 9,
+    "score": 34,
+    "full_name": "docusealco/docuseal",
+    "github_url": "https://github.com/docusealco/docuseal",
+    "description": "Open source DocuSign alternative. Create, fill, and sign digital documents ✍️",
+    "language": "Ruby",
+    "stars_total": 18251,
+    "stars_gained": 8,
+    "forks_total": 1844,
+    "forks_gained": 2,
+    "created_at": "2023-07-03T19:54:54Z",
+    "tags": [
+      "document-processing",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 10,
+    "score": 32,
+    "full_name": "rails/rails",
+    "github_url": "https://github.com/rails/rails",
+    "description": "Ruby on Rails",
+    "language": "Ruby",
+    "stars_total": 58688,
+    "stars_gained": 4,
+    "forks_total": 22647,
+    "forks_gained": 3,
+    "created_at": "2008-04-11T02:19:47Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 11,
+    "score": 32,
+    "full_name": "crmne/schematist",
+    "github_url": "https://github.com/crmne/schematist",
+    "description": "A simple and clean Ruby DSL for creating JSON schemas.",
+    "language": "Ruby",
+    "stars_total": 154,
+    "stars_gained": 4,
+    "forks_total": 12,
+    "forks_gained": 0,
+    "created_at": "2025-06-12T13:09:08Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 12,
+    "score": 28,
+    "full_name": "rapid7/metasploit-framework",
+    "github_url": "https://github.com/rapid7/metasploit-framework",
+    "description": "Metasploit Framework",
+    "language": "Ruby",
+    "stars_total": 38794,
+    "stars_gained": 7,
+    "forks_total": 14424,
+    "forks_gained": 0,
+    "created_at": "2011-08-30T06:13:20Z",
+    "tags": [
+      "pentesting"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 13,
+    "score": 26,
+    "full_name": "giovantenne/lastsignal",
+    "github_url": "https://github.com/giovantenne/lastsignal",
+    "description": "A self-hosted dead man's switch for delivering encrypted messages (E2EE) to your loved ones — when you're gone or unresponsive.",
+    "language": "Ruby",
+    "stars_total": 707,
+    "stars_gained": 4,
+    "forks_total": 20,
+    "forks_gained": 1,
+    "created_at": "2026-01-21T09:25:42Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 14,
+    "score": 26,
+    "full_name": "midudev/autoskills",
+    "github_url": "https://github.com/midudev/autoskills",
+    "description": "One command. Your entire AI skill stack. Installed.",
+    "language": "Ruby",
+    "stars_total": 6726,
+    "stars_gained": 8,
+    "forks_total": 627,
+    "forks_gained": 1,
+    "created_at": "2026-03-25T10:25:34Z",
+    "tags": [
+      "ai-agent",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 15,
+    "score": 26,
+    "full_name": "instructure/canvas-lms",
+    "github_url": "https://github.com/instructure/canvas-lms",
+    "description": "The open LMS by Instructure, Inc.",
+    "language": "Ruby",
+    "stars_total": 6767,
+    "stars_gained": 3,
+    "forks_total": 2964,
+    "forks_gained": 1,
+    "created_at": "2011-02-01T00:08:40Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 16,
+    "score": 24,
+    "full_name": "crmne/kamal-backup",
+    "github_url": "https://github.com/crmne/kamal-backup",
+    "description": "Add scheduled Rails backups to Kamal",
+    "language": "Ruby",
+    "stars_total": 139,
+    "stars_gained": 3,
+    "forks_total": 8,
+    "forks_gained": 0,
+    "created_at": "2026-04-22T14:32:41Z",
+    "tags": [
+      "database-backup"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 17,
+    "score": 24,
+    "full_name": "usetrmnl/terminus",
+    "github_url": "https://github.com/usetrmnl/terminus",
+    "description": "The flagship TRMNL BYOS application.",
+    "language": "Ruby",
+    "stars_total": 684,
+    "stars_gained": 3,
+    "forks_total": 129,
+    "forks_gained": 0,
+    "created_at": "2025-03-12T02:03:27Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 18,
+    "score": 24,
+    "full_name": "postalserver/postal",
+    "github_url": "https://github.com/postalserver/postal",
+    "description": "📮 A fully featured open source mail delivery platform for incoming & outgoing e-mail",
+    "language": "Ruby",
+    "stars_total": 16727,
+    "stars_gained": 3,
+    "forks_total": 1276,
+    "forks_gained": 0,
+    "created_at": "2017-04-19T12:04:57Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 19,
+    "score": 24,
+    "full_name": "bayandin/awesome-awesomeness",
+    "github_url": "https://github.com/bayandin/awesome-awesomeness",
+    "description": "A curated list of awesome awesomeness",
+    "language": "Ruby",
+    "stars_total": 33600,
+    "stars_gained": 4,
+    "forks_total": 3517,
+    "forks_gained": 0,
+    "created_at": "2014-07-08T05:44:19Z",
+    "tags": [
+      "curated-list"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 20,
+    "score": 24,
+    "full_name": "wpscanteam/wpscan",
+    "github_url": "https://github.com/wpscanteam/wpscan",
+    "description": "WPScan WordPress security scanner. Written for security professionals and blog maintainers to test the security of their WordPress websites. Contact us via contact@wpscan.com",
+    "language": "Ruby",
+    "stars_total": 9732,
+    "stars_gained": 3,
+    "forks_total": 1301,
+    "forks_gained": 0,
+    "created_at": "2012-07-11T20:27:47Z",
+    "tags": [
+      "pentesting"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 21,
+    "score": 23,
+    "full_name": "opf/openproject",
+    "github_url": "https://github.com/opf/openproject",
+    "description": "OpenProject is the leading open source project management software for product, project and portfolio management. A powerful Jira alternative with agile planning, issue tracking, roadmaps, Gantt charts, time tracking, collaboration features, and more. Available on premises or in the cloud. ⭐ Star us on GitHub",
+    "language": "Ruby",
+    "stars_total": 15834,
+    "stars_gained": 6,
+    "forks_total": 3431,
+    "forks_gained": 1,
+    "created_at": "2012-11-28T09:59:11Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 22,
+    "score": 22,
+    "full_name": "decidim/decidim",
+    "github_url": "https://github.com/decidim/decidim",
+    "description": "The participatory democracy framework. A generator and multiple gems made with Ruby on Rails",
+    "language": "Ruby",
+    "stars_total": 1804,
+    "stars_gained": 2,
+    "forks_total": 461,
+    "forks_gained": 0,
+    "created_at": "2016-08-17T14:27:06Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 23,
+    "score": 22,
+    "full_name": "Freika/dawarich",
+    "github_url": "https://github.com/Freika/dawarich",
+    "description": "Your favorite self-hostable alternative to Google Timeline (Google Location History)",
+    "language": "Ruby",
+    "stars_total": 10074,
+    "stars_gained": 7,
+    "forks_total": 357,
+    "forks_gained": 0,
+    "created_at": "2024-03-24T19:46:00Z",
+    "tags": [
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 24,
+    "score": 21,
+    "full_name": "we-promise/sure",
+    "github_url": "https://github.com/we-promise/sure",
+    "description": "The personal finance app for everyone (by everyone)",
+    "language": "Ruby",
+    "stars_total": 9359,
+    "stars_gained": 6,
+    "forks_total": 378,
+    "forks_gained": 0,
+    "created_at": "2025-07-23T04:13:55Z",
+    "tags": [
+      "fintech"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 25,
+    "score": 20,
+    "full_name": "brianmario/mysql2",
+    "github_url": "https://github.com/brianmario/mysql2",
+    "description": "A modern, simple and very fast Mysql library for Ruby - binding to libmysql",
+    "language": "Ruby",
+    "stars_total": 2278,
+    "stars_gained": 0,
+    "forks_total": 527,
+    "forks_gained": 0,
+    "created_at": "2010-03-31T15:40:17Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Ruby"
+  }
+]

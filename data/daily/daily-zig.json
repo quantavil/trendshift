@@ -1,0 +1,533 @@
+[
+  {
+    "period_key": "2026-08-12",
+    "rank": 1,
+    "score": 155,
+    "full_name": "ghostty-org/ghostty",
+    "github_url": "https://github.com/ghostty-org/ghostty",
+    "description": "👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.",
+    "language": "Zig",
+    "stars_total": 59556,
+    "stars_gained": 41,
+    "forks_total": 3208,
+    "forks_gained": 3,
+    "created_at": "2022-03-29T17:38:26Z",
+    "tags": [
+      "emulator"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 2,
+    "score": 79,
+    "full_name": "lightpanda-io/browser",
+    "github_url": "https://github.com/lightpanda-io/browser",
+    "description": "Lightpanda: the headless browser designed for AI and automation",
+    "language": "Zig",
+    "stars_total": 33850,
+    "stars_gained": 26,
+    "forks_total": 1611,
+    "forks_gained": 3,
+    "created_at": "2023-02-07T15:19:34Z",
+    "tags": [
+      "ai-agent",
+      "headless-browser"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 3,
+    "score": 48,
+    "full_name": "vercel-labs/native",
+    "github_url": "https://github.com/vercel-labs/native",
+    "description": "Toolkit for building native desktop apps",
+    "language": "Zig",
+    "stars_total": 7404,
+    "stars_gained": 15,
+    "forks_total": 314,
+    "forks_gained": 1,
+    "created_at": "2026-05-08T19:53:41Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 4,
+    "score": 40,
+    "full_name": "indaco/malt",
+    "github_url": "https://github.com/indaco/malt",
+    "description": "Homebrew's whole ecosystem, none of its weight - a single Zig binary with native post_install and a themeable TUI & CLI.",
+    "language": "Zig",
+    "stars_total": 147,
+    "stars_gained": 5,
+    "forks_total": 3,
+    "forks_gained": 0,
+    "created_at": "2026-04-08T18:12:02Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 5,
+    "score": 32,
+    "full_name": "Seafoam-Labs/Shelly-ALPM",
+    "github_url": "https://github.com/Seafoam-Labs/Shelly-ALPM",
+    "description": "Pacman alternative for ArchLinux, designed with you in mind.",
+    "language": "Zig",
+    "stars_total": 997,
+    "stars_gained": 6,
+    "forks_total": 102,
+    "forks_gained": 0,
+    "created_at": "2026-01-07T17:57:02Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 6,
+    "score": 32,
+    "full_name": "xuzhougeng/wispterm",
+    "github_url": "https://github.com/xuzhougeng/wispterm",
+    "description": "A cross-platform terminal workspace for remote development and AI agent workflows, powered by libghostty-vt",
+    "language": "Zig",
+    "stars_total": 370,
+    "stars_gained": 4,
+    "forks_total": 26,
+    "forks_gained": 0,
+    "created_at": "2026-04-30T11:53:26Z",
+    "tags": [
+      "ai-agent",
+      "ai-workflow"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 7,
+    "score": 32,
+    "full_name": "Illusionna/LocalTransfer",
+    "github_url": "https://github.com/Illusionna/LocalTransfer",
+    "description": "A fast cross-platform HTTP file server (轻量小巧快速上手的跨平台 HTTP 文件服务器互传文件)",
+    "language": "Zig",
+    "stars_total": 546,
+    "stars_gained": 4,
+    "forks_total": 13,
+    "forks_gained": 0,
+    "created_at": "2024-05-09T21:15:23Z",
+    "tags": [
+      "file-management"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 8,
+    "score": 30,
+    "full_name": "riverwm/river",
+    "github_url": "https://github.com/riverwm/river",
+    "description": "[mirror] A non-monolithic Wayland compositor",
+    "language": "Zig",
+    "stars_total": 4241,
+    "stars_gained": 4,
+    "forks_total": 170,
+    "forks_gained": 0,
+    "created_at": "2020-03-20T21:53:10Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 9,
+    "score": 25,
+    "full_name": "nullclaw/nullclaw",
+    "github_url": "https://github.com/nullclaw/nullclaw",
+    "description": "Fastest, smallest, and fully autonomous AI assistant infrastructure written in Zig",
+    "language": "Zig",
+    "stars_total": 8023,
+    "stars_gained": 5,
+    "forks_total": 965,
+    "forks_gained": 1,
+    "created_at": "2026-02-16T21:17:27Z",
+    "tags": [
+      "ai-agent",
+      "ai-infrastructure",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 10,
+    "score": 19,
+    "full_name": "ddalcu/mlx-serve",
+    "github_url": "https://github.com/ddalcu/mlx-serve",
+    "description": "Native LLM inference server for Apple Silicon. OpenAI + Anthropic API compatible. No Python. Includes MLX Core macOS app with chat, agent mode, and tool calling.",
+    "language": "Zig",
+    "stars_total": 589,
+    "stars_gained": 7,
+    "forks_total": 43,
+    "forks_gained": 0,
+    "created_at": "2026-02-17T01:55:20Z",
+    "tags": [
+      "ai-agent",
+      "ai-infrastructure",
+      "local-llm",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 11,
+    "score": 19,
+    "full_name": "tigerbeetle/tigerbeetle",
+    "github_url": "https://github.com/tigerbeetle/tigerbeetle",
+    "description": "The financial transactions database designed for mission critical safety and performance.",
+    "language": "Zig",
+    "stars_total": 16779,
+    "stars_gained": 5,
+    "forks_total": 890,
+    "forks_gained": 2,
+    "created_at": "2020-04-09T16:04:20Z",
+    "tags": [
+      "fintech"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 12,
+    "score": 16,
+    "full_name": "yuku-toolchain/yuku",
+    "github_url": "https://github.com/yuku-toolchain/yuku",
+    "description": "High-performance JavaScript/TypeScript compiler toolchain in Zig.",
+    "language": "Zig",
+    "stars_total": 920,
+    "stars_gained": 3,
+    "forks_total": 26,
+    "forks_gained": 1,
+    "created_at": "2025-10-22T16:10:54Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 13,
+    "score": 16,
+    "full_name": "karlseguin/http.zig",
+    "github_url": "https://github.com/karlseguin/http.zig",
+    "description": "An HTTP/1.1 server for zig",
+    "language": "Zig",
+    "stars_total": 1577,
+    "stars_gained": 2,
+    "forks_total": 128,
+    "forks_gained": 0,
+    "created_at": "2023-03-13T08:51:53Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 14,
+    "score": 15,
+    "full_name": "Loongphy/codex-auth",
+    "github_url": "https://github.com/Loongphy/codex-auth",
+    "description": "A CLI tool to switch and manage Codex accounts",
+    "language": "Zig",
+    "stars_total": 2469,
+    "stars_gained": 4,
+    "forks_total": 155,
+    "forks_gained": 0,
+    "created_at": "2026-02-10T06:53:56Z",
+    "tags": [
+      "authentication"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 15,
+    "score": 15,
+    "full_name": "zigtools/zls",
+    "github_url": "https://github.com/zigtools/zls",
+    "description": "A language server for Zig supporting developers with features like autocomplete and goto definition",
+    "language": "Zig",
+    "stars_total": 5071,
+    "stars_gained": 3,
+    "forks_total": 450,
+    "forks_gained": 0,
+    "created_at": "2020-04-24T22:19:50Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 16,
+    "score": 12,
+    "full_name": "kristoff-it/zine",
+    "github_url": "https://github.com/kristoff-it/zine",
+    "description": "Fast, Scalable, Flexible Static Site Generator (SSG)",
+    "language": "Zig",
+    "stars_total": 1523,
+    "stars_gained": 2,
+    "forks_total": 104,
+    "forks_gained": 0,
+    "created_at": "2023-11-30T15:11:26Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 17,
+    "score": 11,
+    "full_name": "gary23w/nl-veil",
+    "github_url": "https://github.com/gary23w/nl-veil",
+    "description": "A swarm of autonomous AI minds, unified and steered by a single consciousness - the Veil. Runs on any language model.",
+    "language": "Zig",
+    "stars_total": 132,
+    "stars_gained": 3,
+    "forks_total": 33,
+    "forks_gained": 0,
+    "created_at": "2026-06-26T01:20:08Z",
+    "tags": [
+      "ai-agent",
+      "rag",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 18,
+    "score": 10,
+    "full_name": "hexops/mach",
+    "github_url": "https://github.com/hexops/mach",
+    "description": "zig game engine & graphics toolkit - mirror of https://code.hexops.com/hexops/mach",
+    "language": "Zig",
+    "stars_total": 4817,
+    "stars_gained": 2,
+    "forks_total": 213,
+    "forks_gained": 0,
+    "created_at": "2021-07-04T17:37:47Z",
+    "tags": [
+      "game-development"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 19,
+    "score": 9,
+    "full_name": "neurosnap/zmx",
+    "github_url": "https://github.com/neurosnap/zmx",
+    "description": "Session attach/detach for the terminal",
+    "language": "Zig",
+    "stars_total": 2031,
+    "stars_gained": 3,
+    "forks_total": 131,
+    "forks_gained": 0,
+    "created_at": "2025-10-10T19:51:40Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 20,
+    "score": 9,
+    "full_name": "clojurewasm/zwasm",
+    "github_url": "https://github.com/clojurewasm/zwasm",
+    "description": "A fast, spec-compliant WebAssembly runtime written in Zig",
+    "language": "Zig",
+    "stars_total": 159,
+    "stars_gained": 1,
+    "forks_total": 12,
+    "forks_gained": 0,
+    "created_at": "2026-02-10T05:34:06Z",
+    "tags": [
+      "webassembly"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 21,
+    "score": 8,
+    "full_name": "Ray-D-Song/wasmz",
+    "github_url": "https://github.com/Ray-D-Song/wasmz",
+    "description": "Fast WebAssembly interpreter",
+    "language": "Zig",
+    "stars_total": 74,
+    "stars_gained": 1,
+    "forks_total": 4,
+    "forks_gained": 0,
+    "created_at": "2026-03-27T05:42:40Z",
+    "tags": [
+      "webassembly"
+    ],
+    "social_mention_platforms": [
+      "reddit"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 22,
+    "score": 8,
+    "full_name": "justrach/kuri",
+    "github_url": "https://github.com/justrach/kuri",
+    "description": "Browser automation, web crawling, and iOS + Android device control for AI agents. Zig-native, token-efficient CDP snapshots, HAR recording, native adb wire-protocol client, and a standalone fetcher.",
+    "language": "Zig",
+    "stars_total": 350,
+    "stars_gained": 1,
+    "forks_total": 19,
+    "forks_gained": 0,
+    "created_at": "2026-03-04T07:09:00Z",
+    "tags": [
+      "ai-agent",
+      "headless-browser",
+      "web-scraping"
+    ],
+    "social_mention_platforms": [
+      "hackernews"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 23,
+    "score": 8,
+    "full_name": "raylib-zig/raylib-zig",
+    "github_url": "https://github.com/raylib-zig/raylib-zig",
+    "description": "Manually tweaked, auto-generated raylib bindings for zig. https://github.com/raysan5/raylib",
+    "language": "Zig",
+    "stars_total": 1853,
+    "stars_gained": 1,
+    "forks_total": 255,
+    "forks_gained": 0,
+    "created_at": "2020-02-15T09:58:13Z",
+    "tags": [
+      "game-development"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 24,
+    "score": 7,
+    "full_name": "zml/zml",
+    "github_url": "https://github.com/zml/zml",
+    "description": "Any model. Any hardware. Zero compromise. Built with @ziglang / @openxla / MLIR / @bazelbuild",
+    "language": "Zig",
+    "stars_total": 3976,
+    "stars_gained": 2,
+    "forks_total": 173,
+    "forks_gained": 0,
+    "created_at": "2024-09-17T09:13:32Z",
+    "tags": [
+      "ai-infrastructure"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 25,
+    "score": 7,
+    "full_name": "david-vanderson/dvui",
+    "github_url": "https://github.com/david-vanderson/dvui",
+    "description": "Immediate Zig GUI for Apps and Games",
+    "language": "Zig",
+    "stars_total": 1616,
+    "stars_gained": 1,
+    "forks_total": 145,
+    "forks_gained": 0,
+    "created_at": "2022-05-15T23:37:21Z",
+    "tags": [
+      "ui-components"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "Zig"
+  }
+]

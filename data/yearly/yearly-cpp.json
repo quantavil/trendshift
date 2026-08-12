@@ -1,0 +1,1757 @@
+[
+  {
+    "period_key": "2026",
+    "rank": 1,
+    "score": 4969562,
+    "full_name": "openclaw/openclaw",
+    "github_url": "https://github.com/openclaw/openclaw",
+    "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way. 🦞 ",
+    "language": "TypeScript",
+    "stars_total": 386062,
+    "stars_gained": 390563,
+    "forks_total": 83302,
+    "forks_gained": 83214,
+    "created_at": "2025-11-24T10:16:47Z",
+    "tags": [
+      "ai-agent",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 2,
+    "score": 3183509,
+    "full_name": "obra/superpowers",
+    "github_url": "https://github.com/obra/superpowers",
+    "description": "An agentic skills framework & software development methodology that works.",
+    "language": "Shell",
+    "stars_total": 271177,
+    "stars_gained": 259660,
+    "forks_total": 24955,
+    "forks_gained": 23961,
+    "created_at": "2025-10-09T19:45:18Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 3,
+    "score": 2692667,
+    "full_name": "NousResearch/hermes-agent",
+    "github_url": "https://github.com/NousResearch/hermes-agent",
+    "description": "The agent that grows with you",
+    "language": "Python",
+    "stars_total": 229478,
+    "stars_gained": 230522,
+    "forks_total": 48131,
+    "forks_gained": 48131,
+    "created_at": "2025-07-22T22:22:28Z",
+    "tags": [
+      "ai-agent",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 4,
+    "score": 2194509,
+    "full_name": "affaan-m/ECC",
+    "github_url": "https://github.com/affaan-m/ECC",
+    "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+    "language": "JavaScript",
+    "stars_total": 239706,
+    "stars_gained": 241092,
+    "forks_total": 37483,
+    "forks_gained": 37483,
+    "created_at": "2026-01-18T00:51:51Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 5,
+    "score": 1926560,
+    "full_name": "anomalyco/opencode",
+    "github_url": "https://github.com/anomalyco/opencode",
+    "description": "The open source coding agent.",
+    "language": "TypeScript",
+    "stars_total": 196514,
+    "stars_gained": 153919,
+    "forks_total": 26459,
+    "forks_gained": 22971,
+    "created_at": "2025-04-30T20:08:00Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 6,
+    "score": 1839083,
+    "full_name": "mattpocock/skills",
+    "github_url": "https://github.com/mattpocock/skills",
+    "description": "Skills for Real Engineers. Straight from my .agents directory.",
+    "language": "Shell",
+    "stars_total": 214890,
+    "stars_gained": 212827,
+    "forks_total": 19095,
+    "forks_gained": 19095,
+    "created_at": "2026-02-03T11:15:53Z",
+    "tags": [
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 7,
+    "score": 1798872,
+    "full_name": "multica-ai/andrej-karpathy-skills",
+    "github_url": "https://github.com/multica-ai/andrej-karpathy-skills",
+    "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
+    "language": "Unknown",
+    "stars_total": 201838,
+    "stars_gained": 202963,
+    "forks_total": 21112,
+    "forks_gained": 21112,
+    "created_at": "2026-01-27T03:53:13Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 8,
+    "score": 1762881,
+    "full_name": "msitarzewski/agency-agents",
+    "github_url": "https://github.com/msitarzewski/agency-agents",
+    "description": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
+    "language": "Shell",
+    "stars_total": 144428,
+    "stars_gained": 144079,
+    "forks_total": 23949,
+    "forks_gained": 23752,
+    "created_at": "2025-10-13T12:12:29Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 9,
+    "score": 1733750,
+    "full_name": "ultraworkers/claw-code",
+    "github_url": "https://github.com/ultraworkers/claw-code",
+    "description": "An agent-managed museum exhibit, built in Rust with Gajae-Code / LazyCodex — developed and maintained with no human intervention.",
+    "language": "Rust",
+    "stars_total": 195067,
+    "stars_gained": 196946,
+    "forks_total": 107620,
+    "forks_gained": 107620,
+    "created_at": "2026-03-31T08:58:08Z",
+    "tags": [
+      "ai-agent",
+      "ai-workflow"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 10,
+    "score": 1716340,
+    "full_name": "anthropics/skills",
+    "github_url": "https://github.com/anthropics/skills",
+    "description": "Public repository for Agent Skills",
+    "language": "Python",
+    "stars_total": 168485,
+    "stars_gained": 138746,
+    "forks_total": 20590,
+    "forks_gained": 17969,
+    "created_at": "2025-09-22T15:53:31Z",
+    "tags": [
+      "ai-agent",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 11,
+    "score": 1452162,
+    "full_name": "farion1231/cc-switch",
+    "github_url": "https://github.com/farion1231/cc-switch",
+    "description": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes Agent. Only official website: ccswitch.io",
+    "language": "Rust",
+    "stars_total": 126706,
+    "stars_gained": 118919,
+    "forks_total": 8965,
+    "forks_gained": 8461,
+    "created_at": "2025-08-04T14:16:16Z",
+    "tags": [
+      "ai-coding",
+      "mcp"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 12,
+    "score": 1401924,
+    "full_name": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "github_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "description": "An AI SKILL that provide design intelligence for building professional UI/UX multiple platforms",
+    "language": "Python",
+    "stars_total": 116070,
+    "stars_gained": 113902,
+    "forks_total": 12754,
+    "forks_gained": 12346,
+    "created_at": "2025-11-30T11:36:31Z",
+    "tags": [
+      "ai-skills",
+      "design-system"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 13,
+    "score": 1081031,
+    "full_name": "earendil-works/pi",
+    "github_url": "https://github.com/earendil-works/pi",
+    "description": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
+    "language": "TypeScript",
+    "stars_total": 88483,
+    "stars_gained": 87069,
+    "forks_total": 11601,
+    "forks_gained": 11491,
+    "created_at": "2025-08-09T14:03:50Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 14,
+    "score": 1073889,
+    "full_name": "garrytan/gstack",
+    "github_url": "https://github.com/garrytan/gstack",
+    "description": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
+    "language": "TypeScript",
+    "stars_total": 127682,
+    "stars_gained": 128212,
+    "forks_total": 19808,
+    "forks_gained": 19808,
+    "created_at": "2026-03-11T21:22:45Z",
+    "tags": [
+      "ai-agent",
+      "ai-workflow"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 15,
+    "score": 1048244,
+    "full_name": "ruvnet/RuView",
+    "github_url": "https://github.com/ruvnet/RuView",
+    "description": "π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.",
+    "language": "Rust",
+    "stars_total": 89772,
+    "stars_gained": 84469,
+    "forks_total": 12268,
+    "forks_gained": 11895,
+    "created_at": "2025-06-07T04:32:30Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 16,
+    "score": 1006954,
+    "full_name": "thedotmack/claude-mem",
+    "github_url": "https://github.com/thedotmack/claude-mem",
+    "description": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
+    "language": "JavaScript",
+    "stars_total": 90535,
+    "stars_gained": 82045,
+    "forks_total": 8151,
+    "forks_gained": 7607,
+    "created_at": "2025-08-31T20:50:03Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "ai-memory"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 17,
+    "score": 918351,
+    "full_name": "anthropics/claude-code",
+    "github_url": "https://github.com/anthropics/claude-code",
+    "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+    "language": "Python",
+    "stars_total": 141212,
+    "stars_gained": 93503,
+    "forks_total": 23300,
+    "forks_gained": 20100,
+    "created_at": "2025-02-22T17:41:21Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 18,
+    "score": 880973,
+    "full_name": "666ghj/MiroFish",
+    "github_url": "https://github.com/666ghj/MiroFish",
+    "description": "A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物",
+    "language": "Python",
+    "stars_total": 70894,
+    "stars_gained": 70718,
+    "forks_total": 11242,
+    "forks_gained": 11151,
+    "created_at": "2025-11-26T04:23:02Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 19,
+    "score": 869040,
+    "full_name": "VoltAgent/awesome-design-md",
+    "github_url": "https://github.com/VoltAgent/awesome-design-md",
+    "description": "A collection of DESIGN.md files analysis by popular brand design systems. Drop one into your project and let coding agents generate a matching UI.",
+    "language": "Unknown",
+    "stars_total": 108056,
+    "stars_gained": 108347,
+    "forks_total": 12563,
+    "forks_gained": 12563,
+    "created_at": "2026-03-31T16:37:01Z",
+    "tags": [
+      "ai-coding",
+      "design-system",
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 20,
+    "score": 835178,
+    "full_name": "Graphify-Labs/graphify",
+    "github_url": "https://github.com/Graphify-Labs/graphify",
+    "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+    "language": "Python",
+    "stars_total": 105604,
+    "stars_gained": 105369,
+    "forks_total": 10626,
+    "forks_gained": 10626,
+    "created_at": "2026-04-03T15:49:07Z",
+    "tags": [
+      "ai-agent",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 21,
+    "score": 830127,
+    "full_name": "firecrawl/firecrawl",
+    "github_url": "https://github.com/firecrawl/firecrawl",
+    "description": "The context API to search, scrape, and interact with the web at scale. 🔥",
+    "language": "TypeScript",
+    "stars_total": 166344,
+    "stars_gained": 95750,
+    "forks_total": 9452,
+    "forks_gained": 4121,
+    "created_at": "2024-04-15T21:02:29Z",
+    "tags": [
+      "ai-workflow",
+      "web-scraping"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 22,
+    "score": 828540,
+    "full_name": "TauricResearch/TradingAgents",
+    "github_url": "https://github.com/TauricResearch/TradingAgents",
+    "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
+    "language": "Python",
+    "stars_total": 97827,
+    "stars_gained": 71496,
+    "forks_total": 19303,
+    "forks_gained": 14352,
+    "created_at": "2024-12-28T03:31:08Z",
+    "tags": [
+      "ai-agent",
+      "fintech"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 23,
+    "score": 807086,
+    "full_name": "D4Vinci/Scrapling",
+    "github_url": "https://github.com/D4Vinci/Scrapling",
+    "description": "🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!",
+    "language": "Python",
+    "stars_total": 73643,
+    "stars_gained": 65582,
+    "forks_total": 7528,
+    "forks_gained": 7069,
+    "created_at": "2024-10-13T20:29:53Z",
+    "tags": [
+      "web-scraping"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 24,
+    "score": 793603,
+    "full_name": "code-yeongyu/oh-my-openagent",
+    "github_url": "https://github.com/code-yeongyu/oh-my-openagent",
+    "description": "omo/lazycodex: The coding agent for tokenmaxxers;the one and only agent harness for complex codebases. For your Codex, for your OpenCode",
+    "language": "TypeScript",
+    "stars_total": 67757,
+    "stars_gained": 64695,
+    "forks_total": 5563,
+    "forks_gained": 5285,
+    "created_at": "2025-12-03T01:40:05Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026",
+    "rank": 25,
+    "score": 793373,
+    "full_name": "gsd-build/get-shit-done",
+    "github_url": "https://github.com/gsd-build/get-shit-done",
+    "description": "A light-weight and powerful meta-prompting, context engineering and spec-driven development system for Claude Code by TÂCHES.",
+    "language": "JavaScript",
+    "stars_total": 64714,
+    "stars_gained": 66049,
+    "forks_total": 5720,
+    "forks_gained": 5681,
+    "created_at": "2025-12-14T14:17:12Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding",
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 1,
+    "score": 1469472,
+    "full_name": "n8n-io/n8n",
+    "github_url": "https://github.com/n8n-io/n8n",
+    "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+    "language": "TypeScript",
+    "stars_total": 200306,
+    "stars_gained": 111379,
+    "forks_total": 61088,
+    "forks_gained": 42411,
+    "created_at": "2019-06-22T09:24:21Z",
+    "tags": [
+      "ai-workflow",
+      "workflow-automation",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 2,
+    "score": 1232232,
+    "full_name": "langflow-ai/langflow",
+    "github_url": "https://github.com/langflow-ai/langflow",
+    "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows.",
+    "language": "Python",
+    "stars_total": 153076,
+    "stars_gained": 101576,
+    "forks_total": 10130,
+    "forks_gained": 3706,
+    "created_at": "2023-02-08T22:28:03Z",
+    "tags": [
+      "ai-agent",
+      "ai-workflow"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 3,
+    "score": 1129863,
+    "full_name": "DigitalPlatDev/FreeDomain",
+    "github_url": "https://github.com/DigitalPlatDev/FreeDomain",
+    "description": "DigitalPlat FreeDomain: Free Domain For Everyone",
+    "language": "Unknown",
+    "stars_total": 192344,
+    "stars_gained": 98840,
+    "forks_total": 4186,
+    "forks_gained": 1562,
+    "created_at": "2024-05-30T13:23:00Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 4,
+    "score": 1111761,
+    "full_name": "deepseek-ai/DeepSeek-V3",
+    "github_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+    "description": "",
+    "language": "Python",
+    "stars_total": 104162,
+    "stars_gained": 88788,
+    "forks_total": 17007,
+    "forks_gained": 15306,
+    "created_at": "2024-12-26T09:52:40Z",
+    "tags": [
+      "nlp",
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 5,
+    "score": 1103196,
+    "full_name": "codecrafters-io/build-your-own-x",
+    "github_url": "https://github.com/codecrafters-io/build-your-own-x",
+    "description": "Master programming by recreating your favorite technologies from scratch.",
+    "language": "Markdown",
+    "stars_total": 538910,
+    "stars_gained": 137364,
+    "forks_total": 50765,
+    "forks_gained": 13203,
+    "created_at": "2018-05-09T12:03:18Z",
+    "tags": [
+      "programming-examples"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 6,
+    "score": 930035,
+    "full_name": "x1xhlol/system-prompts-and-models-of-ai-tools",
+    "github_url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+    "description": "FULL Augment Code, Claude Code, Cluely, CodeBuddy, Comet, Cursor, Devin AI, Junie, Kiro, Leap.new, Lovable, Manus, NotionAI, Orchids.app, Perplexity, Poke, Qoder, Replit, Same.dev, Trae, Traycer AI, VSCode Agent, Warp.dev, Windsurf, Xcode, Z.ai Code, Dia & v0. (And other Open Sourced) System Prompts, Internal Tools & AI Models",
+    "language": "Unknown",
+    "stars_total": 142750,
+    "stars_gained": 102993,
+    "forks_total": 34998,
+    "forks_gained": 26584,
+    "created_at": "2025-03-05T16:38:29Z",
+    "tags": [
+      "ai-coding",
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 7,
+    "score": 927753,
+    "full_name": "Shubhamsaboo/awesome-llm-apps",
+    "github_url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+    "description": "100+ AI Agents, Agent Skills and RAG Apps - Free and Open Source.",
+    "language": "Python",
+    "stars_total": 132236,
+    "stars_gained": 74646,
+    "forks_total": 19534,
+    "forks_gained": 10628,
+    "created_at": "2024-04-29T05:30:25Z",
+    "tags": [
+      "ai-agent",
+      "local-llm",
+      "rag",
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 8,
+    "score": 880664,
+    "full_name": "unionlabs/union",
+    "github_url": "https://github.com/unionlabs/union",
+    "description": "The trust-minimized, zero-knowledge bridging protocol, designed for censorship resistance, extremely high security, and usage in decentralized finance.",
+    "language": "Rust",
+    "stars_total": 73874,
+    "stars_gained": 73447,
+    "forks_total": 3948,
+    "forks_gained": 3762,
+    "created_at": "2023-05-16T22:33:39Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 9,
+    "score": 850232,
+    "full_name": "modelcontextprotocol/servers",
+    "github_url": "https://github.com/modelcontextprotocol/servers",
+    "description": "Model Context Protocol Servers",
+    "language": "TypeScript",
+    "stars_total": 89468,
+    "stars_gained": 68747,
+    "forks_total": 11622,
+    "forks_gained": 8132,
+    "created_at": "2024-11-19T01:10:17Z",
+    "tags": [
+      "mcp"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 10,
+    "score": 821310,
+    "full_name": "deepseek-ai/DeepSeek-R1",
+    "github_url": "https://github.com/deepseek-ai/DeepSeek-R1",
+    "description": "",
+    "language": "Unknown",
+    "stars_total": 91974,
+    "stars_gained": 90007,
+    "forks_total": 11684,
+    "forks_gained": 11316,
+    "created_at": "2025-01-20T11:57:28Z",
+    "tags": [
+      "nlp"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 11,
+    "score": 815794,
+    "full_name": "browser-use/browser-use",
+    "github_url": "https://github.com/browser-use/browser-use",
+    "description": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+    "language": "Python",
+    "stars_total": 108884,
+    "stars_gained": 65836,
+    "forks_total": 12176,
+    "forks_gained": 8061,
+    "created_at": "2024-10-31T16:00:56Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 12,
+    "score": 764698,
+    "full_name": "TapXWorld/ChinaTextbook",
+    "github_url": "https://github.com/TapXWorld/ChinaTextbook",
+    "description": "所有小初高、大学PDF教材。",
+    "language": "Roff",
+    "stars_total": 79039,
+    "stars_gained": 61047,
+    "forks_total": 17832,
+    "forks_gained": 13286,
+    "created_at": "2020-01-05T04:11:06Z",
+    "tags": [
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 13,
+    "score": 697347,
+    "full_name": "google-gemini/gemini-cli",
+    "github_url": "https://github.com/google-gemini/gemini-cli",
+    "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+    "language": "TypeScript",
+    "stars_total": 106479,
+    "stars_gained": 87545,
+    "forks_total": 14778,
+    "forks_gained": 9616,
+    "created_at": "2025-04-17T17:04:31Z",
+    "tags": [
+      "nlp",
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 14,
+    "score": 696341,
+    "full_name": "sindresorhus/awesome",
+    "github_url": "https://github.com/sindresorhus/awesome",
+    "description": "😎 Awesome lists about all kinds of interesting topics",
+    "language": "Unknown",
+    "stars_total": 494720,
+    "stars_gained": 89709,
+    "forks_total": 35686,
+    "forks_gained": 4936,
+    "created_at": "2014-07-11T13:42:37Z",
+    "tags": [
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 15,
+    "score": 560604,
+    "full_name": "langgenius/dify",
+    "github_url": "https://github.com/langgenius/dify",
+    "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+    "language": "TypeScript",
+    "stars_total": 152170,
+    "stars_gained": 68013,
+    "forks_total": 24453,
+    "forks_gained": 10968,
+    "created_at": "2023-04-12T07:40:24Z",
+    "tags": [
+      "ai-agent",
+      "ai-workflow",
+      "rag"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 16,
+    "score": 555699,
+    "full_name": "firecrawl/firecrawl",
+    "github_url": "https://github.com/firecrawl/firecrawl",
+    "description": "The context API to search, scrape, and interact with the web at scale. 🔥",
+    "language": "TypeScript",
+    "stars_total": 166073,
+    "stars_gained": 50974,
+    "forks_total": 9438,
+    "forks_gained": 3844,
+    "created_at": "2024-04-15T21:02:29Z",
+    "tags": [
+      "ai-workflow",
+      "web-scraping"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 17,
+    "score": 511058,
+    "full_name": "public-apis/public-apis",
+    "github_url": "https://github.com/public-apis/public-apis",
+    "description": "A collective list of free APIs",
+    "language": "Python",
+    "stars_total": 455541,
+    "stars_gained": 69891,
+    "forks_total": 49549,
+    "forks_gained": 7738,
+    "created_at": "2016-03-20T23:49:42Z",
+    "tags": [
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 18,
+    "score": 499777,
+    "full_name": "pathwaycom/pathway",
+    "github_url": "https://github.com/pathwaycom/pathway",
+    "description": "Python ETL framework for stream processing, real-time analytics, LLM pipelines, and RAG.",
+    "language": "Python",
+    "stars_total": 62480,
+    "stars_gained": 41341,
+    "forks_total": 1749,
+    "forks_gained": 1215,
+    "created_at": "2022-11-27T13:01:14Z",
+    "tags": [
+      "rag",
+      "data-streaming"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 19,
+    "score": 497693,
+    "full_name": "microsoft/markitdown",
+    "github_url": "https://github.com/microsoft/markitdown",
+    "description": "Python tool for converting files and office documents to Markdown.",
+    "language": "Python",
+    "stars_total": 173261,
+    "stars_gained": 55266,
+    "forks_total": 12979,
+    "forks_gained": 3642,
+    "created_at": "2024-11-13T19:56:40Z",
+    "tags": [
+      "document-processing"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 20,
+    "score": 486556,
+    "full_name": "virattt/ai-hedge-fund",
+    "github_url": "https://github.com/virattt/ai-hedge-fund",
+    "description": "An AI Hedge Fund Team",
+    "language": "Python",
+    "stars_total": 62811,
+    "stars_gained": 38846,
+    "forks_total": 11197,
+    "forks_gained": 6756,
+    "created_at": "2024-11-29T16:30:01Z",
+    "tags": [
+      "ai-agent",
+      "fintech"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 21,
+    "score": 483211,
+    "full_name": "open-webui/open-webui",
+    "github_url": "https://github.com/open-webui/open-webui",
+    "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+    "language": "Python",
+    "stars_total": 148546,
+    "stars_gained": 65887,
+    "forks_total": 22212,
+    "forks_gained": 9956,
+    "created_at": "2023-10-06T22:08:27Z",
+    "tags": [
+      "local-llm",
+      "rag",
+      "chatbot",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 22,
+    "score": 467371,
+    "full_name": "pathwaycom/llm-app",
+    "github_url": "https://github.com/pathwaycom/llm-app",
+    "description": "Ready-to-run cloud templates for RAG, AI pipelines, and enterprise search with live data. 🐳Docker-friendly.⚡Always in sync with Sharepoint, Google Drive, S3, Kafka, PostgreSQL, real-time data APIs, and more.",
+    "language": "Jupyter Notebook",
+    "stars_total": 59073,
+    "stars_gained": 38717,
+    "forks_total": 1506,
+    "forks_gained": 922,
+    "created_at": "2023-07-19T08:43:37Z",
+    "tags": [
+      "rag"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 23,
+    "score": 453201,
+    "full_name": "521xueweihan/HelloGitHub",
+    "github_url": "https://github.com/521xueweihan/HelloGitHub",
+    "description": ":octocat: 分享 GitHub 上有趣、入门级的开源项目。Share interesting, entry-level open source projects on GitHub.",
+    "language": "Python",
+    "stars_total": 170457,
+    "stars_gained": 42833,
+    "forks_total": 12709,
+    "forks_gained": 1460,
+    "created_at": "2016-05-04T06:24:11Z",
+    "tags": [
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 24,
+    "score": 453118,
+    "full_name": "openai/codex",
+    "github_url": "https://github.com/openai/codex",
+    "description": "Lightweight coding agent that runs in your terminal",
+    "language": "Rust",
+    "stars_total": 105440,
+    "stars_gained": 53851,
+    "forks_total": 16056,
+    "forks_gained": 6205,
+    "created_at": "2025-04-13T05:37:54Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2025",
+    "rank": 25,
+    "score": 451509,
+    "full_name": "FoundationAgents/OpenManus",
+    "github_url": "https://github.com/FoundationAgents/OpenManus",
+    "description": "No fortress, purely open ground.  OpenManus is Coming.",
+    "language": "Python",
+    "stars_total": 57935,
+    "stars_gained": 51131,
+    "forks_total": 10003,
+    "forks_gained": 8506,
+    "created_at": "2025-03-06T14:08:14Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 1,
+    "score": 854246,
+    "full_name": "ollama/ollama",
+    "github_url": "https://github.com/ollama/ollama",
+    "description": "Get up and running with Kimi-K2.6, GLM-5.2, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+    "language": "Go",
+    "stars_total": 178318,
+    "stars_gained": 74260,
+    "forks_total": 17492,
+    "forks_gained": 6175,
+    "created_at": "2023-06-26T19:39:32Z",
+    "tags": [
+      "local-llm",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 2,
+    "score": 676575,
+    "full_name": "codecrafters-io/build-your-own-x",
+    "github_url": "https://github.com/codecrafters-io/build-your-own-x",
+    "description": "Master programming by recreating your favorite technologies from scratch.",
+    "language": "Markdown",
+    "stars_total": 538910,
+    "stars_gained": 85342,
+    "forks_total": 50765,
+    "forks_gained": 7456,
+    "created_at": "2018-05-09T12:03:18Z",
+    "tags": [
+      "programming-examples"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 3,
+    "score": 612205,
+    "full_name": "open-webui/open-webui",
+    "github_url": "https://github.com/open-webui/open-webui",
+    "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+    "language": "Python",
+    "stars_total": 148546,
+    "stars_gained": 49374,
+    "forks_total": 22212,
+    "forks_gained": 5724,
+    "created_at": "2023-10-06T22:08:27Z",
+    "tags": [
+      "local-llm",
+      "rag",
+      "chatbot",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 4,
+    "score": 596865,
+    "full_name": "zed-industries/zed",
+    "github_url": "https://github.com/zed-industries/zed",
+    "description": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
+    "language": "Rust",
+    "stars_total": 88464,
+    "stars_gained": 49459,
+    "forks_total": 10326,
+    "forks_gained": 2947,
+    "created_at": "2021-02-20T03:01:06Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 5,
+    "score": 531174,
+    "full_name": "langgenius/dify",
+    "github_url": "https://github.com/langgenius/dify",
+    "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+    "language": "TypeScript",
+    "stars_total": 152170,
+    "stars_gained": 42301,
+    "forks_total": 24453,
+    "forks_gained": 6222,
+    "created_at": "2023-04-12T07:40:24Z",
+    "tags": [
+      "ai-agent",
+      "ai-workflow",
+      "rag"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 6,
+    "score": 469717,
+    "full_name": "clash-verge-rev/clash-verge-rev",
+    "github_url": "https://github.com/clash-verge-rev/clash-verge-rev",
+    "description": "A modern GUI client based on Tauri, designed to run in Windows, macOS and Linux for tailored proxy experience",
+    "language": "TypeScript",
+    "stars_total": 137282,
+    "stars_gained": 38334,
+    "forks_total": 10114,
+    "forks_gained": 2834,
+    "created_at": "2023-11-21T18:24:03Z",
+    "tags": [
+      "proxy"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 7,
+    "score": 467323,
+    "full_name": "microsoft/generative-ai-for-beginners",
+    "github_url": "https://github.com/microsoft/generative-ai-for-beginners",
+    "description": "21 Lessons, Get Started Building with Generative AI ",
+    "language": "Jupyter Notebook",
+    "stars_total": 117560,
+    "stars_gained": 44071,
+    "forks_total": 62474,
+    "forks_gained": 20864,
+    "created_at": "2023-06-19T16:28:59Z",
+    "tags": [
+      "programming-examples"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 8,
+    "score": 457542,
+    "full_name": "hacksider/Deep-Live-Cam",
+    "github_url": "https://github.com/hacksider/Deep-Live-Cam",
+    "description": "real time face swap and one-click video deepfake with only a single image",
+    "language": "Python",
+    "stars_total": 95883,
+    "stars_gained": 40400,
+    "forks_total": 14178,
+    "forks_gained": 5741,
+    "created_at": "2023-09-24T13:19:31Z",
+    "tags": [
+      "computer-vision",
+      "ai-video"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 9,
+    "score": 435036,
+    "full_name": "rasbt/LLMs-from-scratch",
+    "github_url": "https://github.com/rasbt/LLMs-from-scratch",
+    "description": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+    "language": "Jupyter Notebook",
+    "stars_total": 102470,
+    "stars_gained": 35136,
+    "forks_total": 15866,
+    "forks_gained": 4401,
+    "created_at": "2023-07-23T18:15:57Z",
+    "tags": [
+      "nlp",
+      "programming-examples"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 10,
+    "score": 431556,
+    "full_name": "mlabonne/llm-course",
+    "github_url": "https://github.com/mlabonne/llm-course",
+    "description": "Course to get into Large Language Models (LLMs) with roadmaps and Colab notebooks.",
+    "language": "Unknown",
+    "stars_total": 81623,
+    "stars_gained": 35070,
+    "forks_total": 9530,
+    "forks_gained": 3568,
+    "created_at": "2023-06-17T22:16:25Z",
+    "tags": [
+      "nlp",
+      "programming-examples"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 11,
+    "score": 420057,
+    "full_name": "practical-tutorials/project-based-learning",
+    "github_url": "https://github.com/practical-tutorials/project-based-learning",
+    "description": "Curated list of project-based tutorials",
+    "language": "Python",
+    "stars_total": 278629,
+    "stars_gained": 64691,
+    "forks_total": 35670,
+    "forks_gained": 8147,
+    "created_at": "2017-04-12T05:07:46Z",
+    "tags": [
+      "programming-examples",
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 12,
+    "score": 419430,
+    "full_name": "xai-org/grok-1",
+    "github_url": "https://github.com/xai-org/grok-1",
+    "description": "Grok open release",
+    "language": "Python",
+    "stars_total": 52109,
+    "stars_gained": 48156,
+    "forks_total": 8623,
+    "forks_gained": 7847,
+    "created_at": "2024-03-17T08:53:38Z",
+    "tags": [
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 13,
+    "score": 412047,
+    "full_name": "massgravel/Microsoft-Activation-Scripts",
+    "github_url": "https://github.com/massgravel/Microsoft-Activation-Scripts",
+    "description": "Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS activation methods, along with advanced troubleshooting.",
+    "language": "Batchfile",
+    "stars_total": 186754,
+    "stars_gained": 52710,
+    "forks_total": 18064,
+    "forks_gained": 4830,
+    "created_at": "2020-01-12T23:03:34Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 14,
+    "score": 401813,
+    "full_name": "lobehub/lobehub",
+    "github_url": "https://github.com/lobehub/lobehub",
+    "description": "🤯 LobeHub is your Chief Agent Operator, organizing your agents into 7×24 operations by hiring, scheduling, and reporting on your entire AI team.",
+    "language": "TypeScript",
+    "stars_total": 81541,
+    "stars_gained": 34393,
+    "forks_total": 16243,
+    "forks_gained": 7038,
+    "created_at": "2023-05-21T07:19:12Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 15,
+    "score": 395227,
+    "full_name": "Stirling-Tools/Stirling-PDF",
+    "github_url": "https://github.com/Stirling-Tools/Stirling-PDF",
+    "description": "#1 PDF Application on GitHub that lets you edit PDFs on any device anywhere",
+    "language": "TypeScript",
+    "stars_total": 89366,
+    "stars_gained": 34241,
+    "forks_total": 8361,
+    "forks_gained": 2950,
+    "created_at": "2023-01-27T18:22:42Z",
+    "tags": [
+      "document-processing",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 16,
+    "score": 388082,
+    "full_name": "astral-sh/uv",
+    "github_url": "https://github.com/astral-sh/uv",
+    "description": "An extremely fast Python package and project manager, written in Rust.",
+    "language": "Rust",
+    "stars_total": 88659,
+    "stars_gained": 33109,
+    "forks_total": 3601,
+    "forks_gained": 847,
+    "created_at": "2023-10-02T20:24:11Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 17,
+    "score": 373824,
+    "full_name": "Comfy-Org/ComfyUI",
+    "github_url": "https://github.com/Comfy-Org/ComfyUI",
+    "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",
+    "language": "Python",
+    "stars_total": 126925,
+    "stars_gained": 40147,
+    "forks_total": 15041,
+    "forks_gained": 4251,
+    "created_at": "2023-01-17T03:15:56Z",
+    "tags": [
+      "ai-image",
+      "ai-workflow"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 18,
+    "score": 371671,
+    "full_name": "sindresorhus/awesome",
+    "github_url": "https://github.com/sindresorhus/awesome",
+    "description": "😎 Awesome lists about all kinds of interesting topics",
+    "language": "Unknown",
+    "stars_total": 494720,
+    "stars_gained": 58043,
+    "forks_total": 35686,
+    "forks_gained": 2240,
+    "created_at": "2014-07-11T13:42:37Z",
+    "tags": [
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 19,
+    "score": 361915,
+    "full_name": "lizongying/my-tv",
+    "github_url": "https://github.com/lizongying/my-tv",
+    "description": "我的电视 电视直播软件，安装即可使用",
+    "language": "C",
+    "stars_total": 32012,
+    "stars_gained": 29314,
+    "forks_total": 3628,
+    "forks_gained": 3228,
+    "created_at": "2023-12-04T12:18:39Z",
+    "tags": [],
+    "social_mention_platforms": [],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 20,
+    "score": 357362,
+    "full_name": "myshell-ai/OpenVoice",
+    "github_url": "https://github.com/myshell-ai/OpenVoice",
+    "description": "Instant voice cloning by MIT and MyShell. Audio foundation model.",
+    "language": "Python",
+    "stars_total": 37133,
+    "stars_gained": 29091,
+    "forks_total": 4104,
+    "forks_gained": 2745,
+    "created_at": "2023-11-29T12:17:01Z",
+    "tags": [
+      "ai-voice",
+      "text-to-speech"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 21,
+    "score": 350911,
+    "full_name": "donnemartin/system-design-primer",
+    "github_url": "https://github.com/donnemartin/system-design-primer",
+    "description": "Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.",
+    "language": "Python",
+    "stars_total": 363296,
+    "stars_gained": 46955,
+    "forks_total": 56430,
+    "forks_gained": 6404,
+    "created_at": "2017-02-26T16:15:28Z",
+    "tags": [
+      "programming-examples"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 22,
+    "score": 345183,
+    "full_name": "hiyouga/LlamaFactory",
+    "github_url": "https://github.com/hiyouga/LlamaFactory",
+    "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
+    "language": "Python",
+    "stars_total": 74012,
+    "stars_gained": 27757,
+    "forks_total": 9078,
+    "forks_gained": 3291,
+    "created_at": "2023-05-28T10:09:12Z",
+    "tags": [
+      "nlp",
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 23,
+    "score": 334503,
+    "full_name": "RVC-Boss/GPT-SoVITS",
+    "github_url": "https://github.com/RVC-Boss/GPT-SoVITS",
+    "description": "1 min voice data can also be used to train a good TTS model! (few shot voice cloning)",
+    "language": "Python",
+    "stars_total": 60757,
+    "stars_gained": 36565,
+    "forks_total": 6583,
+    "forks_gained": 3984,
+    "created_at": "2024-01-14T18:05:21Z",
+    "tags": [
+      "ai-voice",
+      "text-to-speech",
+      "audio-processing"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 24,
+    "score": 331226,
+    "full_name": "OpenHands/OpenHands",
+    "github_url": "https://github.com/OpenHands/OpenHands",
+    "description": "🙌 OpenHands: AI-Driven Development",
+    "language": "Python",
+    "stars_total": 83772,
+    "stars_gained": 38134,
+    "forks_total": 10791,
+    "forks_gained": 4065,
+    "created_at": "2024-03-13T03:33:31Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2024",
+    "rank": 25,
+    "score": 312150,
+    "full_name": "public-apis/public-apis",
+    "github_url": "https://github.com/public-apis/public-apis",
+    "description": "A collective list of free APIs",
+    "language": "Python",
+    "stars_total": 455541,
+    "stars_gained": 51224,
+    "forks_total": 49549,
+    "forks_gained": 4720,
+    "created_at": "2016-03-20T23:49:42Z",
+    "tags": [
+      "curated-list"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "yearly",
+    "language_filter": "C++"
+  }
+]

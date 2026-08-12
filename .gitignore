@@ -1,0 +1,7 @@
+# Trendshift Pipeline
+__pycache__/
+*.pyc
+*.pyo
+trendshift.db
+trendshift.db-wal
+trendshift.db-shm

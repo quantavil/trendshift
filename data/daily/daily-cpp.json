@@ -1,0 +1,563 @@
+[
+  {
+    "period_key": "2026-08-12",
+    "rank": 1,
+    "score": 19848,
+    "full_name": "cathrynlavery/diagram-design",
+    "github_url": "https://github.com/cathrynlavery/diagram-design",
+    "description": "29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.",
+    "language": "HTML",
+    "stars_total": 9443,
+    "stars_gained": 2830,
+    "forks_total": 594,
+    "forks_gained": 139,
+    "created_at": "2026-04-16T18:01:16Z",
+    "tags": [
+      "data-visualization"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 2,
+    "score": 9316,
+    "full_name": "spinabot/brigade",
+    "github_url": "https://github.com/spinabot/brigade",
+    "description": "Brigade — Your personal intelligence, built enterprise-grade",
+    "language": "TypeScript",
+    "stars_total": 2547,
+    "stars_gained": 1164,
+    "forks_total": 26,
+    "forks_gained": 2,
+    "created_at": "2026-06-19T15:18:17Z",
+    "tags": [
+      "ai-agent",
+      "ai-workflow",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 3,
+    "score": 7932,
+    "full_name": "liquidslr/system-design-notes",
+    "github_url": "https://github.com/liquidslr/system-design-notes",
+    "description": "Notes of the book System Desgin Interview - An Insider's Guide",
+    "language": "Unknown",
+    "stars_total": 10534,
+    "stars_gained": 962,
+    "forks_total": 2112,
+    "forks_gained": 118,
+    "created_at": "2024-12-24T01:19:44Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 4,
+    "score": 6210,
+    "full_name": "corsairdev/corsair",
+    "github_url": "https://github.com/corsairdev/corsair",
+    "description": "Your Agent's Integration Layer",
+    "language": "TypeScript",
+    "stars_total": 9625,
+    "stars_gained": 774,
+    "forks_total": 279,
+    "forks_gained": 4,
+    "created_at": "2025-10-14T18:50:32Z",
+    "tags": [
+      "ai-agent",
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 5,
+    "score": 5932,
+    "full_name": "guillaumemeyer/watermarks-remover",
+    "github_url": "https://github.com/guillaumemeyer/watermarks-remover",
+    "description": "Strip multi-vendor AI provenance marks: Unicode text hygiene, statistical rewrite hooks, and C2PA/metadata from PNG/JPEG/SVG/PDF/DOCX/HTML/MD",
+    "language": "Python",
+    "stars_total": 1471,
+    "stars_gained": 965,
+    "forks_total": 95,
+    "forks_gained": 95,
+    "created_at": "2026-08-11T16:32:38Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 6,
+    "score": 5660,
+    "full_name": "msitarzewski/agency-agents",
+    "github_url": "https://github.com/msitarzewski/agency-agents",
+    "description": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
+    "language": "Shell",
+    "stars_total": 144428,
+    "stars_gained": 1307,
+    "forks_total": 23949,
+    "forks_gained": 136,
+    "created_at": "2025-10-13T12:12:29Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 7,
+    "score": 5166,
+    "full_name": "LaoFeng-mouse/flyingmouse-format",
+    "github_url": "https://github.com/LaoFeng-mouse/flyingmouse-format",
+    "description": "飞鼠格式 FlyingMouse Format - Windows 万能文件格式转换工具（离线可用，内置 FFmpeg/LibreOffice/Poppler/Tesseract）。图片/文档/表格/PPT/PDF/音视频/WPS 格式互转 + OCR + 批量转换",
+    "language": "JavaScript",
+    "stars_total": 851,
+    "stars_gained": 634,
+    "forks_total": 57,
+    "forks_gained": 47,
+    "created_at": "2026-08-06T03:59:32Z",
+    "tags": [
+      "document-processing"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 8,
+    "score": 4512,
+    "full_name": "egoist/waku",
+    "github_url": "https://github.com/egoist/waku",
+    "description": "⚡ A native app for all your coding agents.",
+    "language": "Rust",
+    "stars_total": 581,
+    "stars_gained": 552,
+    "forks_total": 47,
+    "forks_gained": 46,
+    "created_at": "2026-07-31T09:38:33Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 9,
+    "score": 4479,
+    "full_name": "earendil-works/pi",
+    "github_url": "https://github.com/earendil-works/pi",
+    "description": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
+    "language": "TypeScript",
+    "stars_total": 88483,
+    "stars_gained": 873,
+    "forks_total": 11601,
+    "forks_gained": 108,
+    "created_at": "2025-08-09T14:03:50Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 10,
+    "score": 4255,
+    "full_name": "semantica-agi/semantica",
+    "github_url": "https://github.com/semantica-agi/semantica",
+    "description": "Graph-Native Infrastructure for Context and Accountable AI Systems",
+    "language": "Python",
+    "stars_total": 5566,
+    "stars_gained": 748,
+    "forks_total": 616,
+    "forks_gained": 83,
+    "created_at": "2025-06-25T10:41:00Z",
+    "tags": [
+      "ai-infrastructure"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 11,
+    "score": 3978,
+    "full_name": "macro-inc/macro",
+    "github_url": "https://github.com/macro-inc/macro",
+    "description": "Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared AI memory.",
+    "language": "Rust",
+    "stars_total": 1548,
+    "stars_gained": 491,
+    "forks_total": 209,
+    "forks_gained": 23,
+    "created_at": "2025-11-08T15:18:27Z",
+    "tags": [
+      "ai-memory",
+      "self-hosted"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 12,
+    "score": 3960,
+    "full_name": "milind-soni/OpenMausBot",
+    "github_url": "https://github.com/milind-soni/OpenMausBot",
+    "description": "",
+    "language": "TypeScript",
+    "stars_total": 504,
+    "stars_gained": 478,
+    "forks_total": 76,
+    "forks_gained": 67,
+    "created_at": "2026-08-11T18:58:55Z",
+    "tags": [
+      "ai-agent"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 13,
+    "score": 3935,
+    "full_name": "Zeejay0/gathered-scenes-zine-skill",
+    "github_url": "https://github.com/Zeejay0/gathered-scenes-zine-skill",
+    "description": "",
+    "language": "Unknown",
+    "stars_total": 3072,
+    "stars_gained": 501,
+    "forks_total": 312,
+    "forks_gained": 127,
+    "created_at": "2026-08-01T15:50:05Z",
+    "tags": [
+      "ai-image",
+      "ai-skills"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 14,
+    "score": 3910,
+    "full_name": "hugohe3/ppt-master",
+    "github_url": "https://github.com/hugohe3/ppt-master",
+    "description": "AI turns documents or topics into real, native PowerPoint decks—with native shapes, transitions and animations, data-backed charts and tables on demand, audio narration from speaker notes, and support for your own .pptx templates. · by Hugo He",
+    "language": "Python",
+    "stars_total": 45434,
+    "stars_gained": 594,
+    "forks_total": 3840,
+    "forks_gained": 37,
+    "created_at": "2025-12-10T06:54:33Z",
+    "tags": [
+      "ai-workflow",
+      "document-processing"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 15,
+    "score": 3833,
+    "full_name": "stablyai/orca",
+    "github_url": "https://github.com/stablyai/orca",
+    "description": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and VPS.",
+    "language": "TypeScript",
+    "stars_total": 43666,
+    "stars_gained": 960,
+    "forks_total": 3339,
+    "forks_gained": 64,
+    "created_at": "2026-03-17T03:28:57Z",
+    "tags": [
+      "ai-agent",
+      "ai-coding"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 16,
+    "score": 3510,
+    "full_name": "brightdata/cli",
+    "github_url": "https://github.com/brightdata/cli",
+    "description": "Official Bright Data CLI - scrape, search, and extract structured web data directly from your terminal.",
+    "language": "TypeScript",
+    "stars_total": 4589,
+    "stars_gained": 438,
+    "forks_total": 67,
+    "forks_gained": 3,
+    "created_at": "2026-03-07T10:25:57Z",
+    "tags": [
+      "web-scraping"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 17,
+    "score": 3284,
+    "full_name": "pathwaycom/arc-task-gen",
+    "github_url": "https://github.com/pathwaycom/arc-task-gen",
+    "description": "Generates original ARC-AGI-1-style tasks distribution-matched to the public eval set.",
+    "language": "Python",
+    "stars_total": 1096,
+    "stars_gained": 410,
+    "forks_total": 8,
+    "forks_gained": 2,
+    "created_at": "2026-08-04T12:59:02Z",
+    "tags": [
+      "ai-agent",
+      "synthetic-data"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 18,
+    "score": 3148,
+    "full_name": "paperclipai/paperclip",
+    "github_url": "https://github.com/paperclipai/paperclip",
+    "description": "The open-source app everyone uses to manage agents at work",
+    "language": "TypeScript",
+    "stars_total": 77604,
+    "stars_gained": 479,
+    "forks_total": 14988,
+    "forks_gained": 47,
+    "created_at": "2026-03-02T15:01:51Z",
+    "tags": [
+      "ai-agent",
+      "workflow-automation"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 19,
+    "score": 3088,
+    "full_name": "unslothai/unsloth",
+    "github_url": "https://github.com/unslothai/unsloth",
+    "description": "Local UI to run and train LLMs and diffusion models, including Kimi K3, MiniMax-H3, Gemma 4, Qwen3.6, DeepSeek-V4, FLUX and more.",
+    "language": "Python",
+    "stars_total": 70573,
+    "stars_gained": 374,
+    "forks_total": 6530,
+    "forks_gained": 38,
+    "created_at": "2023-11-29T16:50:09Z",
+    "tags": [
+      "nlp",
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 20,
+    "score": 3080,
+    "full_name": "ZzzLc0405/photo-abstract-editorial",
+    "github_url": "https://github.com/ZzzLc0405/photo-abstract-editorial",
+    "description": "",
+    "language": "Unknown",
+    "stars_total": 2999,
+    "stars_gained": 486,
+    "forks_total": 171,
+    "forks_gained": 42,
+    "created_at": "2026-08-04T09:35:31Z",
+    "tags": [
+      "ai-image",
+      "image-editing"
+    ],
+    "social_mention_platforms": [
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 21,
+    "score": 2936,
+    "full_name": "3b1b/manim",
+    "github_url": "https://github.com/3b1b/manim",
+    "description": "Animation engine for explanatory math videos",
+    "language": "Python",
+    "stars_total": 90545,
+    "stars_gained": 391,
+    "forks_total": 7490,
+    "forks_gained": 28,
+    "created_at": "2015-03-22T18:50:58Z",
+    "tags": [],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 22,
+    "score": 2886,
+    "full_name": "cactus-compute/needle",
+    "github_url": "https://github.com/cactus-compute/needle",
+    "description": "14MB foundation model for tiny devices; phones, wearables, smart home, and robots.",
+    "language": "Python",
+    "stars_total": 4062,
+    "stars_gained": 358,
+    "forks_total": 305,
+    "forks_gained": 11,
+    "created_at": "2026-02-24T04:50:47Z",
+    "tags": [
+      "nlp",
+      "local-llm"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 23,
+    "score": 2688,
+    "full_name": "prod-forge/backend",
+    "github_url": "https://github.com/prod-forge/backend",
+    "description": "Prod Forge is an open-source reference that shows how to build and operate a production-ready system: AI-assisted development, quality gates, CI/CD, infrastructure, observability, migrations, and rollback.",
+    "language": "TypeScript",
+    "stars_total": 615,
+    "stars_gained": 336,
+    "forks_total": 14,
+    "forks_gained": 0,
+    "created_at": "2026-03-05T12:44:10Z",
+    "tags": [
+      "observability",
+      "programming-examples"
+    ],
+    "social_mention_platforms": [],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 24,
+    "score": 2679,
+    "full_name": "ZhuLinsen/daily_stock_analysis",
+    "github_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+    "description": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。  LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
+    "language": "Python",
+    "stars_total": 62561,
+    "stars_gained": 462,
+    "forks_total": 53807,
+    "forks_gained": 225,
+    "created_at": "2026-01-10T06:43:20Z",
+    "tags": [
+      "fintech"
+    ],
+    "social_mention_platforms": [
+      "hackernews",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  },
+  {
+    "period_key": "2026-08-12",
+    "rank": 25,
+    "score": 2607,
+    "full_name": "NVIDIA-NeMo/Switchyard",
+    "github_url": "https://github.com/NVIDIA-NeMo/Switchyard",
+    "description": "",
+    "language": "Rust",
+    "stars_total": 725,
+    "stars_gained": 321,
+    "forks_total": 76,
+    "forks_gained": 19,
+    "created_at": "2026-05-19T19:06:33Z",
+    "tags": [
+      "ai-workflow",
+      "ai-infrastructure",
+      "proxy"
+    ],
+    "social_mention_platforms": [
+      "reddit",
+      "x"
+    ],
+    "timeframe": "daily",
+    "language_filter": "C++"
+  }
+]

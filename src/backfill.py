@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import time
 from datetime import datetime, timezone
 import httpx
-from db import get_connection, init_db, replace_snapshot_slice
+from db import get_connection, init_db, replace_snapshot_slice, prune_ghost_dropouts
 from extractor import (
     BASE_URL,
     SUPPORTED_LANGUAGES,
@@ -83,12 +83,12 @@ async def process_target(
         try:
             resp = await client.get(url, headers=headers, timeout=20.0)
             if resp.status_code != 200:
-                print(f"[FAIL {resp.status_code}] {url_path}", file=sys.stderr)
+                print(f"[FAIL {resp.status_code}] {language_filter:12s} {url_path}", file=sys.stderr)
                 return (url_path, language_filter, 0)
 
             data = extract_initial_data(resp.text)
             if not data:
-                print(f"[WARN] No data: {url_path}", file=sys.stderr)
+                print(f"[WARN] No data: {language_filter:12s} {url_path}", file=sys.stderr)
                 return (url_path, language_filter, 0)
 
             first = data[0]
@@ -108,7 +108,7 @@ async def process_target(
             return (url_path, language_filter, len(data))
 
         except Exception as e:
-            print(f"[ERROR] {url_path}: {e}", file=sys.stderr)
+            print(f"[ERROR] {language_filter:12s} {url_path}: {e}", file=sys.stderr)
             return (url_path, language_filter, 0)
 
 
@@ -132,19 +132,24 @@ async def main():
     conn = get_connection()
     init_db(conn)
 
-    async with httpx.AsyncClient(follow_redirects=True, transport=httpx.AsyncHTTPTransport(retries=3)) as client:
-        endpoints = await fetch_sitemap_urls(client)
-        targets = build_fetch_targets(endpoints, languages)
-        print(f"{len(endpoints)} endpoints × {len(targets) // max(len(endpoints), 1)} filters = {len(targets)} requests", file=sys.stderr)
+    try:
+        async with httpx.AsyncClient(follow_redirects=True, transport=httpx.AsyncHTTPTransport(retries=3)) as client:
+            endpoints = await fetch_sitemap_urls(client)
+            targets = build_fetch_targets(endpoints, languages)
+            print(f"{len(endpoints)} endpoints × {len(targets) // max(len(endpoints), 1)} filters = {len(targets)} requests", file=sys.stderr)
 
-        sem = asyncio.Semaphore(CONCURRENCY)
-        tasks = [
-            process_target(client, path, lang_filter, sem, conn)
-            for path, lang_filter in targets
-        ]
-        results = await asyncio.gather(*tasks)
+            sem = asyncio.Semaphore(CONCURRENCY)
+            tasks = [
+                process_target(client, path, lang_filter, sem, conn)
+                for path, lang_filter in targets
+            ]
+            results = await asyncio.gather(*tasks)
 
-    conn.close()
+        pruned = prune_ghost_dropouts(conn)
+        if pruned > 0:
+            print(f"Pruned {pruned} ghost dropouts from DB.", file=sys.stderr)
+    finally:
+        conn.close()
 
     ok = sum(1 for _, _, c in results if c > 0)
     if ok == 0 or ok * 2 < len(results):

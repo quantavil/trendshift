@@ -52,11 +52,11 @@ def init_db(conn: sqlite3.Connection) -> None:
                 PRIMARY KEY (timeframe, period_key, language_filter, repository_full_name)
             );
 
-            CREATE INDEX IF NOT EXISTS idx_snapshots_lookup
-            ON snapshots (timeframe, period_key, language_filter, rank);
+            DROP INDEX IF EXISTS idx_snapshots_lookup;
+            DROP INDEX IF EXISTS idx_snapshots_lang_filter;
 
-            CREATE INDEX IF NOT EXISTS idx_snapshots_lang_filter
-            ON snapshots (language_filter);
+            CREATE INDEX IF NOT EXISTS idx_snapshots_export
+            ON snapshots (timeframe, language_filter, period_key DESC, rank ASC);
 
             CREATE INDEX IF NOT EXISTS idx_repos_lang
             ON repositories (language);
@@ -85,8 +85,10 @@ def upsert_snapshot(
     forks_total = item.get("repository_forks", 0)
     forks_gained = item.get("repository_forks_gained", 0)
 
-    tags = [t.get("slug") or t.get("name") for t in item.get("tags", []) if isinstance(t, dict)]
-    social_mentions = item.get("social_mention_platforms", [])
+    raw_tags = item.get("tags") or []
+    tags = [t.get("slug") or t.get("name") for t in raw_tags if isinstance(t, dict)]
+    raw_socials = item.get("social_mention_platforms") or []
+    social_mentions = [s for s in raw_socials if s is not None]
 
     fetched_at = datetime.now(timezone.utc).isoformat()
 

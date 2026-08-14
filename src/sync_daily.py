@@ -45,7 +45,7 @@ async def fetch_and_upsert(
 
             data = extract_initial_data(resp.text)
             if not data:
-                print(f"[WARN] No data: {path}", file=sys.stderr)
+                print(f"[WARN] No data: {language_filter} {path}", file=sys.stderr)
                 return 0
 
             first = data[0]
@@ -61,7 +61,7 @@ async def fetch_and_upsert(
             return len(data)
 
         except Exception as e:
-            print(f"[ERROR] {path}: {e}", file=sys.stderr)
+            print(f"[ERROR] {language_filter} {path}: {e}", file=sys.stderr)
             return 0
 
 
@@ -77,15 +77,16 @@ async def main():
     targets.extend((ep, lang) for ep in CORE_ENDPOINTS for lang in SUPPORTED_LANGUAGES)
 
     sem = asyncio.Semaphore(10)
-    async with httpx.AsyncClient(follow_redirects=True, transport=httpx.AsyncHTTPTransport(retries=3)) as client:
-        tasks = [fetch_and_upsert(client, sem, conn, path, lf) for path, lf in targets]
-        results = await asyncio.gather(*tasks)
+    try:
+        async with httpx.AsyncClient(follow_redirects=True, transport=httpx.AsyncHTTPTransport(retries=3)) as client:
+            tasks = [fetch_and_upsert(client, sem, conn, path, lf) for path, lf in targets]
+            results = await asyncio.gather(*tasks)
 
-    pruned = prune_ghost_dropouts(conn)
-    if pruned > 0:
-        print(f"Pruned {pruned} ghost dropouts from DB.", file=sys.stderr)
-
-    conn.close()
+        pruned = prune_ghost_dropouts(conn)
+        if pruned > 0:
+            print(f"Pruned {pruned} ghost dropouts from DB.", file=sys.stderr)
+    finally:
+        conn.close()
 
     ok = sum(1 for n in results if n > 0)
     if ok == 0 or ok * 2 < len(results):

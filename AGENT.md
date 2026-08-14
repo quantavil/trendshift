@@ -1,7 +1,7 @@
 # AGENT.md
 
 ## Structure
-- `src/db.py`: SQLite schema (`repositories` + `snapshots`), WAL mode, composite PK (`timeframe, period_key, language_filter, repository_full_name`), slice replacement (`replace_snapshot_slice()`), dropout pruning.
+- `src/db.py`: SQLite schema (`repositories` + `snapshots`), WAL mode, composite PK (`timeframe, period_key, language_filter, repository_full_name`), `idx_snapshots_export` index, slice replacement (`replace_snapshot_slice()`), dropout pruning.
 - `src/extractor.py`: RSC Flight stream parser. `SUPPORTED_LANGUAGES` defines 15 languages + overall `all` (16 filters). Derives timeframe/period from payload fields (`year`, `week`, `month`, `date`).
 - `src/export_json.py`: Compiles SQLite into `data/{timeframe}/{timeframe}-{lang}.json` plus `data/index.json`. Swap via `.tmp` / `.old` so a crash never leaves `data/` missing.
 - `src/backfill.py`: Async parallel pipeline (`httpx` + `asyncio.Semaphore(10)`) backfilling 2,768 endpoints across 173 periods × 16 language filters.
@@ -16,6 +16,8 @@
 - RSC requests 307-redirect to `?_rsc`; `httpx.AsyncClient` MUST use `follow_redirects=True`.
 - Never interpolate `?language={lang}`. Use `ranking_url()` (`urlencode`). Raw `#` is a fragment; `+` is a space. Live: `?language=C#` → C, `C%23` → C#; `?language=C++` → overall, `C%2B%2B` → C++.
 - Payload items contain `year`, `week`, `month`, and `date` fields. Use these to derive `period_key` instead of URL path.
+- Payload dictionary keys can contain explicit `null` values; always use `item.get(k) is not None` and `(item.get(...) or [])`.
+- `idx_snapshots_export` index on `(timeframe, language_filter, period_key DESC, rank ASC)` serves static API queries as pure covering index scans with 0 temp b-tree sorts.
 - GitHub Pages is enabled on `main` root (`https://quantavil.github.io/trendshift/`), serving `data/` with CORS (`Access-Control-Allow-Origin: *`) for external client consumption.
 
 ## Blunders

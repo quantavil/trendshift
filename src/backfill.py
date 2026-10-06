@@ -14,9 +14,9 @@ import re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import time
-from datetime import datetime, timezone
+from typing import Optional
 import httpx
-from db import get_connection, init_db, replace_snapshot_slice, prune_ghost_dropouts
+from db import get_connection, init_db, replace_snapshot_slice, wal_checkpoint
 from extractor import (
     BASE_URL,
     SUPPORTED_LANGUAGES,
@@ -24,6 +24,7 @@ from extractor import (
     derive_period_key_from_item,
     derive_timeframe_from_item,
     derive_timeframe_from_path,
+    fallback_period_key,
     ranking_url,
 )
 from export_json import export_snapshots
@@ -97,7 +98,7 @@ async def process_target(
 
             if period_key is None:
                 timeframe = derive_timeframe_from_path(url_path)
-                period_key = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                period_key = fallback_period_key(timeframe)
 
             replace_snapshot_slice(conn, data, timeframe, period_key, language_filter)
 
@@ -144,11 +145,8 @@ async def main():
                 for path, lang_filter in targets
             ]
             results = await asyncio.gather(*tasks)
-
-        pruned = prune_ghost_dropouts(conn)
-        if pruned > 0:
-            print(f"Pruned {pruned} ghost dropouts from DB.", file=sys.stderr)
     finally:
+        wal_checkpoint(conn)
         conn.close()
 
     ok = sum(1 for _, _, c in results if c > 0)

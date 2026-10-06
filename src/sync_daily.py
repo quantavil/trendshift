@@ -12,15 +12,16 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import sqlite3
 import time
-from datetime import datetime, timezone
+from typing import Optional
 import httpx
-from db import get_connection, init_db, replace_snapshot_slice, prune_ghost_dropouts
+from db import get_connection, init_db, replace_snapshot_slice, wal_checkpoint
 from extractor import (
     SUPPORTED_LANGUAGES,
     extract_initial_data,
     derive_period_key_from_item,
     derive_timeframe_from_item,
     derive_timeframe_from_path,
+    fallback_period_key,
     ranking_url,
 )
 from export_json import export_snapshots
@@ -34,6 +35,7 @@ async def fetch_and_upsert(
     conn: "sqlite3.Connection",
     path: str,
     language_filter: str = "all",
+    db_lock: Optional[asyncio.Lock] = None,
 ) -> int:
     async with sem:
         url = ranking_url(path, language_filter)
@@ -54,9 +56,19 @@ async def fetch_and_upsert(
 
             if period_key is None:
                 timeframe = derive_timeframe_from_path(path)
-                period_key = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                period_key = fallback_period_key(timeframe)
 
-            replace_snapshot_slice(conn, data, timeframe, period_key, language_filter)
+            # Perform synchronous DB slice replacement in worker thread to prevent event loop blocking
+            if db_lock is not None:
+                async with db_lock:
+                    await asyncio.to_thread(
+                        replace_snapshot_slice, conn, data, timeframe, period_key, language_filter
+                    )
+            else:
+                await asyncio.to_thread(
+                    replace_snapshot_slice, conn, data, timeframe, period_key, language_filter
+                )
+
             print(f"[OK] {language_filter:12s} {path:15s} -> {len(data)} ({timeframe}:{period_key})", file=sys.stderr)
             return len(data)
 
@@ -77,20 +89,18 @@ async def main():
     targets.extend((ep, lang) for ep in CORE_ENDPOINTS for lang in SUPPORTED_LANGUAGES)
 
     sem = asyncio.Semaphore(10)
+    db_lock = asyncio.Lock()
     try:
         async with httpx.AsyncClient(follow_redirects=True, transport=httpx.AsyncHTTPTransport(retries=3)) as client:
-            tasks = [fetch_and_upsert(client, sem, conn, path, lf) for path, lf in targets]
+            tasks = [fetch_and_upsert(client, sem, conn, path, lf, db_lock) for path, lf in targets]
             results = await asyncio.gather(*tasks)
-
-        pruned = prune_ghost_dropouts(conn)
-        if pruned > 0:
-            print(f"Pruned {pruned} ghost dropouts from DB.", file=sys.stderr)
     finally:
+        wal_checkpoint(conn)
         conn.close()
 
     ok = sum(1 for n in results if n > 0)
-    if ok == 0 or ok * 2 < len(results):
-        print(f"[FAIL] {ok}/{len(results)} endpoints succeeded — aborting.", file=sys.stderr)
+    if ok < len(results):
+        print(f"[FAIL] Only {ok}/{len(results)} endpoints succeeded — aborting.", file=sys.stderr)
         sys.exit(1)
 
     total = sum(results)

@@ -13,21 +13,9 @@ import sys
 from typing import Any, Dict
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from db import get_connection, DB_FILE
+from db import get_connection, DB_FILE, BANNED_REPOSITORIES, is_banned_repository
 
 OUTPUT_DIR = "data"
-
-BASE_QUERY = """
-    SELECT
-        s.rank, s.score, s.language, s.language_filter,
-        s.stars_total, s.stars_gained, s.forks_total, s.forks_gained,
-        s.tags_json, s.social_mentions_json, s.period_key, s.timeframe,
-        r.full_name, r.description, r.created_at
-    FROM snapshots s
-    JOIN repositories r ON s.repository_full_name = r.full_name
-    {where}
-    ORDER BY s.period_key DESC, s.rank ASC
-"""
 
 
 def sanitize_filename(name: str) -> str:
@@ -104,35 +92,47 @@ def export_snapshots(db_path: str = DB_FILE, out_dir: str = OUTPUT_DIR) -> Dict[
     try:
         counts = {}
 
-        # Per timeframe
+        # Ensure all standard timeframe directories exist and initialize default -all counts
         for tf in ("daily", "weekly", "monthly", "yearly"):
-            tf_dir = os.path.join(tmp_dir, tf)
-            os.makedirs(tf_dir, exist_ok=True)
+            os.makedirs(os.path.join(tmp_dir, tf), exist_ok=True)
+            counts[f"{tf}-all"] = 0
 
-            # tf-all.json — overall ranking (language_filter='all')
-            rows = conn.execute(
-                BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = 'all'"),
-                (tf,),
-            ).fetchall()
-            tf_items = [format_row(r) for r in rows]
-            write_json(os.path.join(tf_dir, f"{tf}-all.json"), tf_items)
-            counts[f"{tf}-all"] = len(tf_items)
+        # Query all snapshots in a single index-backed pass, excluding banned repositories
+        banned_list = [b.lower() for b in BANNED_REPOSITORIES]
+        placeholders = ",".join("?" for _ in banned_list) if banned_list else "''"
+        query = f"""
+            SELECT
+                s.rank, s.score, s.language, s.language_filter,
+                s.stars_total, s.stars_gained, s.forks_total, s.forks_gained,
+                s.tags_json, s.social_mentions_json, s.period_key, s.timeframe,
+                r.full_name, r.description, r.created_at
+            FROM snapshots s
+            JOIN repositories r ON s.repository_full_name = r.full_name
+            WHERE LOWER(r.full_name) NOT IN ({placeholders})
+            ORDER BY s.timeframe, s.language_filter, s.period_key DESC, s.rank ASC
+        """
+        params = banned_list
 
-            # tf-{language}.json — per-language ranking
-            lang_filters = conn.execute(
-                "SELECT DISTINCT language_filter FROM snapshots WHERE timeframe = ? AND language_filter != 'all'",
-                (tf,),
-            ).fetchall()
+        grouped: Dict[tuple[str, str], list] = {}
+        for row in conn.execute(query, params):
+            if is_banned_repository(row["full_name"]):
+                continue
+            key = (row["timeframe"], row["language_filter"])
+            if key not in grouped:
+                grouped[key] = []
+            grouped[key].append(format_row(row))
 
-            for (lang_filter,) in lang_filters:
-                rows = conn.execute(
-                    BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = ?"),
-                    (tf, lang_filter),
-                ).fetchall()
-                lang_items = [format_row(r) for r in rows]
-                slug = sanitize_filename(lang_filter)
-                write_json(os.path.join(tf_dir, f"{tf}-{slug}.json"), lang_items)
-                counts[f"{tf}-{slug}"] = len(lang_items)
+        # Always write {tf}-all.json for all 4 standard timeframes (even if empty)
+        for tf in ("daily", "weekly", "monthly", "yearly"):
+            items = grouped.pop((tf, "all"), [])
+            write_json(os.path.join(tmp_dir, tf, f"{tf}-all.json"), items)
+            counts[f"{tf}-all"] = len(items)
+
+        # Write per-language ranking JSON files
+        for (tf, lang_filter), items in grouped.items():
+            slug = sanitize_filename(lang_filter)
+            write_json(os.path.join(tmp_dir, tf, f"{tf}-{slug}.json"), items)
+            counts[f"{tf}-{slug}"] = len(items)
 
         write_json(os.path.join(tmp_dir, "index.json"), {
             "schema_version": 1,

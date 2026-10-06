@@ -7,14 +7,26 @@ import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from db import get_connection, init_db, replace_snapshot_slice, upsert_snapshot, prune_ghost_dropouts
+from db import (
+    get_connection,
+    init_db,
+    replace_snapshot_slice,
+    upsert_snapshot,
+    wal_checkpoint,
+    evict_banned_repositories,
+    is_banned_repository,
+    BANNED_REPOSITORIES,
+)
 from export_json import export_snapshots, sanitize_filename, format_row
 from extractor import (
     ranking_url,
     slice_matches_language,
     derive_timeframe_from_item,
     derive_period_key_from_item,
+    fallback_period_key,
+    extract_initial_data,
 )
+from purge_history import purge_history
 
 
 def _item(name, language, rank=1, tags=None, socials=None, week=None, month=None, year=None, date=None):
@@ -79,6 +91,44 @@ class ExtractorTimeframeDerivationTests(unittest.TestCase):
         self.assertEqual(derive_period_key_from_item({"year": 2026}), "2026")
         self.assertEqual(derive_period_key_from_item({"date": "2026-08-14T12:00:00Z"}), "2026-08-14")
 
+    def test_fallback_period_key(self):
+        from datetime import datetime, timezone
+        d = datetime(2026, 10, 6, 12, 0, 0, tzinfo=timezone.utc)
+        self.assertEqual(fallback_period_key("daily", d), "2026-10-06")
+        self.assertEqual(fallback_period_key("weekly", d), "2026-W41")
+        self.assertEqual(fallback_period_key("monthly", d), "2026-M10")
+        self.assertEqual(fallback_period_key("yearly", d), "2026")
+
+
+class RSCFlightParsingTests(unittest.TestCase):
+    def test_standard_initial_data(self):
+        text = '1:{"initialData":[{"id":1,"full_name":"foo/bar"}]}'
+        data = extract_initial_data(text)
+        self.assertIsNotNone(data)
+        self.assertEqual(data[0]["full_name"], "foo/bar")
+
+    def test_whitespace_around_colon(self):
+        text = '1:{"initialData"   :   [{"id":2,"full_name":"foo/baz"}]}'
+        data = extract_initial_data(text)
+        self.assertIsNotNone(data)
+        self.assertEqual(data[0]["full_name"], "foo/baz")
+
+    def test_multiple_occurrences_resilient(self):
+        text = '0:{"initialData":null}\n1:{"initialData":[{"id":3,"full_name":"hello/world"}]}'
+        data = extract_initial_data(text)
+        self.assertIsNotNone(data)
+        self.assertEqual(data[0]["full_name"], "hello/world")
+
+    def test_escaped_flight_stream_quotes(self):
+        text = '0:\"{\\\"initialData\\\":[{\\\"id\\\":4,\\\"full_name\\\":\\\"escaped/repo\\\"}]}\"'
+        data = extract_initial_data(text)
+        self.assertIsNotNone(data)
+        self.assertEqual(data[0]["full_name"], "escaped/repo")
+
+    def test_empty_and_invalid(self):
+        self.assertIsNone(extract_initial_data(""))
+        self.assertIsNone(extract_initial_data("random text without initialData"))
+
 
 class LanguageGuardTests(unittest.TestCase):
     def test_overall_always_ok(self):
@@ -95,6 +145,22 @@ class LanguageGuardTests(unittest.TestCase):
     def test_accepts_majority_match(self):
         items = [_item("a/cs", "C#", 1), _item("a/cs2", "C#", 2), _item("a/other", "HTML", 3)]
         self.assertTrue(slice_matches_language(items, "C#"))
+
+    def test_accepts_small_slice_with_single_match(self):
+        # 1 match out of 2 items should pass (avoiding strict > 50% crash)
+        items = [_item("a/cs", "C#", 1), _item("a/c", "C", 2)]
+        self.assertTrue(slice_matches_language(items, "C#"))
+
+    def test_accepts_single_item_match(self):
+        items = [_item("a/zig", "Zig", 1)]
+        self.assertTrue(slice_matches_language(items, "Zig"))
+
+    def test_rejects_single_item_mismatch(self):
+        items = [_item("a/c", "C", 1)]
+        self.assertFalse(slice_matches_language(items, "Zig"))
+
+    def test_empty_items_rejected(self):
+        self.assertFalse(slice_matches_language([], "Python"))
 
     def test_replace_refuses_mismatched_slice(self):
         fd, path = tempfile.mkstemp(suffix=".db")
@@ -132,23 +198,58 @@ class DatabaseTests(unittest.TestCase):
         self.assertEqual(row["tags_json"], "[]")
         self.assertEqual(row["social_mentions_json"], "[]")
 
-    def test_prune_ghost_dropouts(self):
+    def test_wal_checkpoint(self):
         fd, path = tempfile.mkstemp(suffix=".db")
         os.close(fd)
         self.addCleanup(lambda: os.path.exists(path) and os.remove(path))
 
         conn = get_connection(path)
         init_db(conn)
-        # Insert 30 snapshots in one slice
-        items = [_item(f"org/repo{i}", "Python", rank=i) for i in range(1, 31)]
-        with conn:
-            for it in items:
-                upsert_snapshot(conn, it, "daily", "2026-01-01", "all")
+        wal_checkpoint(conn)
+        conn.close()
 
-        self.assertEqual(conn.execute("SELECT COUNT(*) FROM snapshots").fetchone()[0], 30)
-        pruned = prune_ghost_dropouts(conn)
-        self.assertEqual(pruned, 5)
-        self.assertEqual(conn.execute("SELECT COUNT(*) FROM snapshots").fetchone()[0], 25)
+    def test_evict_and_filter_banned_repositories(self):
+        fd, path = tempfile.mkstemp(suffix=".db")
+        os.close(fd)
+        self.addCleanup(lambda: os.path.exists(path) and os.remove(path))
+
+        conn = get_connection(path)
+        init_db(conn)
+
+        malware_name = "postlayerrespect26/FPS-Booster-for-Wiindows"
+        self.assertTrue(is_banned_repository(malware_name))
+
+        # Directly insert to simulate dirty state
+        with conn:
+            conn.execute("INSERT INTO repositories (full_name) VALUES (?)", (malware_name,))
+            conn.execute(
+                "INSERT INTO snapshots (timeframe, period_key, language_filter, repository_full_name, rank, fetched_at) "
+                "VALUES ('daily', '2026-01-01', 'all', ?, 1, '2026-01-01T00:00:00Z')",
+                (malware_name,),
+            )
+
+        self.assertEqual(
+            conn.execute("SELECT COUNT(*) FROM snapshots WHERE repository_full_name=?", (malware_name,)).fetchone()[0],
+            1,
+        )
+
+        evicted = evict_banned_repositories(conn)
+        self.assertEqual(evicted, 1)
+        self.assertEqual(
+            conn.execute("SELECT COUNT(*) FROM snapshots WHERE repository_full_name=?", (malware_name,)).fetchone()[0],
+            0,
+        )
+        self.assertEqual(
+            conn.execute("SELECT COUNT(*) FROM repositories WHERE full_name=?", (malware_name,)).fetchone()[0],
+            0,
+        )
+
+        # Upsert should ignore banned repo
+        upsert_snapshot(conn, {"full_name": malware_name, "rank": 1}, "daily", "2026-01-01")
+        self.assertEqual(
+            conn.execute("SELECT COUNT(*) FROM snapshots WHERE repository_full_name=?", (malware_name,)).fetchone()[0],
+            0,
+        )
         conn.close()
 
     def test_export_index_query_plan(self):
@@ -254,6 +355,67 @@ class ExportTests(unittest.TestCase):
             index = json.loads(f.read())
         self.assertEqual(index["schema_version"], 1)
         self.assertIn("daily-all", index["files"])
+
+    def test_export_excludes_banned_repositories(self):
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(tmp, ignore_errors=True))
+        db_path = os.path.join(tmp, "t.db")
+        out_dir = os.path.join(tmp, "data")
+
+        conn = get_connection(db_path)
+        init_db(conn)
+        # Insert legitimate repo
+        upsert_snapshot(conn, _item("good/repo", "Python"), "daily", "2026-01-01", "all")
+
+        # Force insert banned malware repo into snapshots
+        banned = "Primedrobulwark/Discord-Server-Booster"
+        with conn:
+            conn.execute("INSERT INTO repositories (full_name) VALUES (?)", (banned,))
+            conn.execute(
+                "INSERT INTO snapshots (timeframe, period_key, language_filter, repository_full_name, rank, fetched_at) "
+                "VALUES ('daily', '2026-01-01', 'all', ?, 2, '2026-01-01T00:00:00Z')",
+                (banned,),
+            )
+        conn.close()
+
+        export_snapshots(db_path, out_dir)
+
+        with open(os.path.join(out_dir, "daily", "daily-all.json"), encoding="utf-8") as f:
+            data = json.load(f)
+        full_names = [d["full_name"] for d in data]
+        self.assertIn("good/repo", full_names)
+        self.assertNotIn(banned, full_names)
+
+
+class HistoryPurgeTests(unittest.TestCase):
+    def test_purge_history_dry_run_and_execution(self):
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(tmp, ignore_errors=True))
+
+        def git(args):
+            import subprocess
+            return subprocess.check_output(["git", *args], cwd=tmp, text=True).strip()
+
+        git(["init"])
+        git(["config", "user.name", "test"])
+        git(["config", "user.email", "test@test.com"])
+        with open(os.path.join(tmp, "f.txt"), "w") as f:
+            f.write("base")
+        git(["add", "."])
+        git(["commit", "-m", "initial commit"])
+
+        for i in range(1, 10):
+            with open(os.path.join(tmp, "f.txt"), "w") as f:
+                f.write(f"val {i}")
+            git(["add", "."])
+            git(["commit", "-m", f"sync: 2026-01-{i:02d}"])
+
+        # Purge keeping last 3 sync commits
+        res = purge_history(cwd=tmp, max_sync_commits=3, dry_run=False)
+        self.assertEqual(res["purged"], 6)
+        self.assertEqual(res["sync_before"], 9)
+        # Should now have 1 initial + 1 archive + 3 sync commits = 5 commits
+        self.assertEqual(res["total_after"], 5)
 
 
 if __name__ == "__main__":

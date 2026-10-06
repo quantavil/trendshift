@@ -51,12 +51,19 @@ async def fetch_and_upsert(
                 return 0
 
             first = data[0]
-            timeframe = derive_timeframe_from_item(first)
+            path_tf = derive_timeframe_from_path(path)
+            item_tf = derive_timeframe_from_item(first)
+            timeframe = path_tf if path_tf != "daily" else item_tf
             period_key = derive_period_key_from_item(first)
 
-            if period_key is None:
-                timeframe = derive_timeframe_from_path(path)
+            if (
+                period_key is None
+                or (timeframe == "weekly" and "-W" not in period_key)
+                or (timeframe == "monthly" and "-M" not in period_key)
+                or (timeframe == "yearly" and not (len(period_key) == 4 and period_key.isdigit()))
+            ):
                 period_key = fallback_period_key(timeframe)
+
 
             # Perform synchronous DB slice replacement in worker thread to prevent event loop blocking
             if db_lock is not None:

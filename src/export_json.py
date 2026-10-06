@@ -122,17 +122,27 @@ def export_snapshots(db_path: str = DB_FILE, out_dir: str = OUTPUT_DIR) -> Dict[
                 grouped[key] = []
             grouped[key].append(format_row(row))
 
-        # Always write {tf}-all.json for all 4 standard timeframes (even if empty)
+        # Export all 4 standard timeframes in logical order: all ranking first, then per-language rankings
         for tf in ("daily", "weekly", "monthly", "yearly"):
             items = grouped.pop((tf, "all"), [])
             write_json(os.path.join(tmp_dir, tf, f"{tf}-all.json"), items)
             counts[f"{tf}-all"] = len(items)
 
-        # Write per-language ranking JSON files
-        for (tf, lang_filter), items in grouped.items():
+            # Per-language ranking JSON files for this timeframe
+            tf_langs = [lf for (t, lf) in list(grouped.keys()) if t == tf]
+            for lf in tf_langs:
+                items = grouped.pop((tf, lf), [])
+                slug = sanitize_filename(lf)
+                write_json(os.path.join(tmp_dir, tf, f"{tf}-{slug}.json"), items)
+                counts[f"{tf}-{slug}"] = len(items)
+
+        # Write any remaining timeframes if present
+        for (tf, lang_filter), items in list(grouped.items()):
+            os.makedirs(os.path.join(tmp_dir, tf), exist_ok=True)
             slug = sanitize_filename(lang_filter)
             write_json(os.path.join(tmp_dir, tf, f"{tf}-{slug}.json"), items)
             counts[f"{tf}-{slug}"] = len(items)
+
 
         write_json(os.path.join(tmp_dir, "index.json"), {
             "schema_version": 1,

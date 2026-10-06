@@ -12,7 +12,8 @@ import sys
 from typing import Dict, Any, List
 
 
-SYNC_PATTERN = re.compile(r"^sync:\s*\d{4}-\d{2}-\d{2}", re.IGNORECASE)
+SYNC_DAILY_PATTERN = re.compile(r"^sync:\s*\d{4}-\d{2}-\d{2}", re.IGNORECASE)
+ARCHIVE_PATTERN = re.compile(r"^sync:\s*historical archive", re.IGNORECASE)
 
 
 def run_git(args: List[str], cwd: str | None = None) -> str:
@@ -44,10 +45,12 @@ def purge_history(
     cwd: str | None = None,
     max_sync_commits: int = 14,
     dry_run: bool = False,
+    target_branch: str = "main",
 ) -> Dict[str, Any]:
     """
     Purges older sync commits, keeping only the most recent max_sync_commits.
-    Consolidates older sync commits into a single historical archive commit.
+    Consolidates older sync commits and previous archive commits into a single
+    historical archive commit to prevent git history from growing indefinitely.
     """
     commits = get_commit_list(cwd=cwd)
     total_before = len(commits)
@@ -58,7 +61,7 @@ def purge_history(
     sync_commits = [
         (sha, subj)
         for sha, subj in chronological
-        if SYNC_PATTERN.match(subj)
+        if SYNC_DAILY_PATTERN.match(subj)
     ]
 
     sync_count = len(sync_commits)
@@ -71,11 +74,16 @@ def purge_history(
             "total_after": total_before,
         }
 
-    to_purge = sync_commits[:-max_sync_commits]
-    to_keep = sync_commits[-max_sync_commits:]
+    to_keep_shas = set(sha for sha, _ in sync_commits[-max_sync_commits:])
+    sync_and_archive = [
+        (sha, subj)
+        for sha, subj in chronological
+        if SYNC_DAILY_PATTERN.match(subj) or ARCHIVE_PATTERN.match(subj)
+    ]
+    to_purge = [c for c in sync_and_archive if c[0] not in to_keep_shas]
     purged_count = len(to_purge)
 
-    print(f"Purging {purged_count} old sync commits (keeping latest {max_sync_commits})...")
+    print(f"Purging {purged_count} old sync/archive commits (keeping latest {max_sync_commits} syncs)...")
 
     if dry_run:
         print(f"[DRY-RUN] Would squash {purged_count} commits up to {to_purge[-1][0][:7]}.")
@@ -112,10 +120,23 @@ def purge_history(
 
     # Rebase remaining commits on top of squash commit
     head_sha = commits[0][0]
-    run_git(["rebase", "--onto", squash_sha, last_purged_sha, head_sha], cwd=cwd)
+    try:
+        run_git(["rebase", "--onto", squash_sha, last_purged_sha, head_sha], cwd=cwd)
+    except Exception as e:
+        try:
+            run_git(["rebase", "--abort"], cwd=cwd)
+        except Exception:
+            pass
+        raise RuntimeError(f"Git rebase failed during history purge: {e}") from e
 
-    if branch_name and branch_name != "HEAD":
-        run_git(["checkout", "-B", branch_name], cwd=cwd)
+    # Update target branch reference to ensure local branch points to rebased HEAD even if detached
+    new_head = run_git(["rev-parse", "HEAD"], cwd=cwd)
+    branch_to_update = branch_name if (branch_name and branch_name != "HEAD") else target_branch
+    try:
+        run_git(["update-ref", f"refs/heads/{branch_to_update}", new_head], cwd=cwd)
+        run_git(["checkout", branch_to_update], cwd=cwd)
+    except Exception as e:
+        print(f"[WARN] Failed to switch/update branch {branch_to_update}: {e}", file=sys.stderr)
 
     # Expire reflog and prune packfile bloat
     run_git(["reflog", "expire", "--expire=now", "--all"], cwd=cwd)
@@ -141,6 +162,12 @@ def main():
         help="Maximum number of recent daily sync commits to retain (default: 14).",
     )
     parser.add_argument(
+        "--branch",
+        type=str,
+        default="main",
+        help="Branch ref to update (default: main).",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Simulate purge without rewriting git history.",
@@ -157,7 +184,9 @@ def main():
         cwd=args.repo_dir,
         max_sync_commits=args.max_sync_commits,
         dry_run=args.dry_run,
+        target_branch=args.branch,
     )
+
 
 
 if __name__ == "__main__":

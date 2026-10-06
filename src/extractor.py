@@ -37,20 +37,32 @@ def slice_matches_language(items: List[Dict[str, Any]], language_filter: str) ->
         return False
 
     target = language_filter.lower().strip()
+    target_aliases = {target}
+    if target in ("c++", "cpp"):
+        target_aliases.update({"c++", "cpp"})
+    elif target in ("c#", "csharp"):
+        target_aliases.update({"c#", "csharp"})
+
     n = 0
     for item in items:
-        lang = item.get("language") or item.get("repository_language") or ""
-        if lang and lang.lower().strip() == target:
+        lang = (item.get("language") or item.get("repository_language") or "").lower().strip()
+        if lang and lang in target_aliases:
             n += 1
         elif not lang:
             tags = item.get("tags") or []
-            if any(
-                isinstance(t, dict) and (
-                    (t.get("slug") or "").lower() == target or
-                    (t.get("name") or "").lower() == target
-                )
-                for t in tags
-            ):
+            matched = False
+            for t in tags:
+                if isinstance(t, dict):
+                    slug = (t.get("slug") or "").lower().strip()
+                    name = (t.get("name") or "").lower().strip()
+                    if slug in target_aliases or name in target_aliases:
+                        matched = True
+                        break
+                elif isinstance(t, str):
+                    if t.lower().strip() in target_aliases:
+                        matched = True
+                        break
+            if matched:
                 n += 1
 
     # On small slices (<= 2 items), 1 matching item is sufficient to avoid false-rejection crashes
@@ -58,6 +70,7 @@ def slice_matches_language(items: List[Dict[str, Any]], language_filter: str) ->
         return n >= 1
 
     return n >= len(items) / 2
+
 
 
 def fallback_period_key(timeframe: str, now: Optional[datetime] = None) -> str:

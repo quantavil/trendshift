@@ -93,12 +93,19 @@ async def process_target(
                 return (url_path, language_filter, 0)
 
             first = data[0]
-            timeframe = derive_timeframe_from_item(first)
+            path_tf = derive_timeframe_from_path(url_path)
+            item_tf = derive_timeframe_from_item(first)
+            timeframe = path_tf if path_tf != "daily" else item_tf
             period_key = derive_period_key_from_item(first)
 
-            if period_key is None:
-                timeframe = derive_timeframe_from_path(url_path)
+            if (
+                period_key is None
+                or (timeframe == "weekly" and "-W" not in period_key)
+                or (timeframe == "monthly" and "-M" not in period_key)
+                or (timeframe == "yearly" and not (len(period_key) == 4 and period_key.isdigit()))
+            ):
                 period_key = fallback_period_key(timeframe)
+
 
             replace_snapshot_slice(conn, data, timeframe, period_key, language_filter)
 

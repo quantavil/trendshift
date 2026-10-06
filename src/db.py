@@ -6,12 +6,20 @@ language_filter distinguishes the overall ranking ("all") from
 per-language rankings ("Python", "Rust", etc.).
 """
 
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import sqlite3
 import json
 from datetime import datetime, timezone
 from typing import Dict, Any
 
-from extractor import slice_matches_language
+try:
+    from extractor import slice_matches_language
+except ImportError:
+    from src.extractor import slice_matches_language
+
 
 DB_FILE = "trendshift.db"
 
@@ -43,6 +51,10 @@ def get_connection(db_path: str = DB_FILE) -> sqlite3.Connection:
 
 def wal_checkpoint(conn: sqlite3.Connection) -> None:
     """Checkpoints WAL log into the main database file and truncates the WAL file."""
+    try:
+        conn.commit()
+    except Exception:
+        pass
     conn.execute("PRAGMA wal_checkpoint(TRUNCATE);")
 
 
@@ -104,6 +116,7 @@ def init_db(conn: sqlite3.Connection) -> None:
             ON repositories (language);
         """)
     evict_banned_repositories(conn)
+    wal_checkpoint(conn)
 
 
 def upsert_snapshot(

@@ -162,6 +162,19 @@ class LanguageGuardTests(unittest.TestCase):
     def test_empty_items_rejected(self):
         self.assertFalse(slice_matches_language([], "Python"))
 
+    def test_accepts_language_alias_cpp(self):
+        items = [_item("a/cpp", "cpp", 1)]
+        self.assertTrue(slice_matches_language(items, "C++"))
+
+    def test_accepts_language_alias_csharp(self):
+        items = [_item("a/cs", "csharp", 1)]
+        self.assertTrue(slice_matches_language(items, "C#"))
+
+    def test_accepts_string_tag_match(self):
+        item_no_lang = _item("a/tool", "", 1, tags=["python"])
+        self.assertTrue(slice_matches_language([item_no_lang], "Python"))
+
+
     def test_replace_refuses_mismatched_slice(self):
         fd, path = tempfile.mkstemp(suffix=".db")
         os.close(fd)
@@ -205,8 +218,24 @@ class DatabaseTests(unittest.TestCase):
 
         conn = get_connection(path)
         init_db(conn)
+        # Insert without explicit commit to verify wal_checkpoint commits dirty transactions
+        upsert_snapshot(conn, _item("repo/test", "Python"), "daily", "2026-01-01", "all")
         wal_checkpoint(conn)
         conn.close()
+
+        # Delete any -wal and -shm files to verify main DB file contains all data
+        for ext in ("-wal", "-shm"):
+            p = path + ext
+            if os.path.exists(p):
+                os.remove(p)
+
+        # Reopen with pure sqlite3 and verify data exists
+        import sqlite3
+        conn2 = sqlite3.connect(path)
+        row = conn2.execute("SELECT COUNT(*) FROM snapshots WHERE repository_full_name='repo/test'").fetchone()
+        conn2.close()
+        self.assertEqual(row[0], 1)
+
 
     def test_evict_and_filter_banned_repositories(self):
         fd, path = tempfile.mkstemp(suffix=".db")
@@ -416,6 +445,92 @@ class HistoryPurgeTests(unittest.TestCase):
         self.assertEqual(res["sync_before"], 9)
         # Should now have 1 initial + 1 archive + 3 sync commits = 5 commits
         self.assertEqual(res["total_after"], 5)
+
+    def test_repeated_daily_purges_prevents_archive_accumulation(self):
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(tmp, ignore_errors=True))
+
+        def git(args):
+            import subprocess
+            return subprocess.check_output(["git", *args], cwd=tmp, text=True).strip()
+
+        git(["init"])
+        git(["config", "user.name", "test"])
+        git(["config", "user.email", "test@test.com"])
+        with open(os.path.join(tmp, "f.txt"), "w") as f:
+            f.write("base")
+        git(["add", "."])
+        git(["commit", "-m", "initial commit"])
+
+        for i in range(1, 6):
+            with open(os.path.join(tmp, "f.txt"), "w") as f:
+                f.write(f"val {i}")
+            git(["add", "."])
+            git(["commit", "-m", f"sync: 2026-01-{i:02d}"])
+
+        # Initial purge keeping last 2
+        res1 = purge_history(cwd=tmp, max_sync_commits=2)
+        # 1 initial + 1 archive + 2 syncs = 4 commits
+        self.assertEqual(res1["total_after"], 4)
+
+        # Simulate Day 6 sync
+        with open(os.path.join(tmp, "f.txt"), "w") as f:
+            f.write("val 6")
+        git(["add", "."])
+        git(["commit", "-m", "sync: 2026-01-06"])
+
+        # Next purge keeping last 2
+        res2 = purge_history(cwd=tmp, max_sync_commits=2)
+        # Should squash old archive + Day 4 into a single archive commit: exactly 4 commits
+        self.assertEqual(res2["total_after"], 4)
+
+        # Simulate Day 7 sync
+        with open(os.path.join(tmp, "f.txt"), "w") as f:
+            f.write("val 7")
+        git(["add", "."])
+        git(["commit", "-m", "sync: 2026-01-07"])
+
+        # Next purge keeping last 2
+        res3 = purge_history(cwd=tmp, max_sync_commits=2)
+        self.assertEqual(res3["total_after"], 4)
+
+        # Verify only 1 archive commit exists in history
+        log_msgs = git(["log", "--format=%s"]).splitlines()
+        archive_count = sum(1 for m in log_msgs if "historical archive" in m)
+        self.assertEqual(archive_count, 1)
+
+    def test_purge_history_on_detached_head_updates_branch(self):
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(tmp, ignore_errors=True))
+
+        def git(args):
+            import subprocess
+            return subprocess.check_output(["git", *args], cwd=tmp, text=True).strip()
+
+        git(["init", "-b", "main"])
+        git(["config", "user.name", "test"])
+        git(["config", "user.email", "test@test.com"])
+        with open(os.path.join(tmp, "f.txt"), "w") as f:
+            f.write("base")
+        git(["add", "."])
+        git(["commit", "-m", "initial commit"])
+
+        for i in range(1, 5):
+            with open(os.path.join(tmp, "f.txt"), "w") as f:
+                f.write(f"val {i}")
+            git(["add", "."])
+            git(["commit", "-m", f"sync: 2026-01-{i:02d}"])
+
+        # Detach HEAD
+        git(["checkout", "--detach"])
+        self.assertEqual(git(["rev-parse", "--abbrev-ref", "HEAD"]), "HEAD")
+
+        # Purge with target_branch="main"
+        purge_history(cwd=tmp, max_sync_commits=2, target_branch="main")
+
+        # Verify local main branch ref was updated to new purged HEAD
+        self.assertEqual(git(["rev-parse", "HEAD"]), git(["rev-parse", "main"]))
+
 
 
 if __name__ == "__main__":

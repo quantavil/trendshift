@@ -38,9 +38,19 @@ def sanitize_filename(name: str) -> str:
     return s or "unknown"
 
 
+def _safe_json_loads(raw: Any) -> list:
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+        return data if isinstance(data, list) else []
+    except (json.JSONDecodeError, TypeError):
+        return []
+
+
 def format_row(r: sqlite3.Row) -> Dict[str, Any]:
-    tags = json.loads(r["tags_json"]) if r["tags_json"] else []
-    socials = json.loads(r["social_mentions_json"]) if r["social_mentions_json"] else []
+    tags = _safe_json_loads(r["tags_json"])
+    socials = _safe_json_loads(r["social_mentions_json"])
 
     return {
         "period_key": r["period_key"],
@@ -85,54 +95,56 @@ def _swap_into_place(tmp_dir: str, out_dir: str) -> None:
 
 
 def export_snapshots(db_path: str = DB_FILE, out_dir: str = OUTPUT_DIR) -> Dict[str, int]:
-    conn = get_connection(db_path)
-
     tmp_dir = out_dir + ".tmp"
     if os.path.exists(tmp_dir):
         shutil.rmtree(tmp_dir)
     os.makedirs(tmp_dir, exist_ok=True)
 
-    counts = {}
+    conn = get_connection(db_path)
+    try:
+        counts = {}
 
-    # Per timeframe
-    for tf in ("daily", "weekly", "monthly", "yearly"):
-        tf_dir = os.path.join(tmp_dir, tf)
-        os.makedirs(tf_dir, exist_ok=True)
+        # Per timeframe
+        for tf in ("daily", "weekly", "monthly", "yearly"):
+            tf_dir = os.path.join(tmp_dir, tf)
+            os.makedirs(tf_dir, exist_ok=True)
 
-        # tf-all.json — overall ranking (language_filter='all')
-        rows = conn.execute(
-            BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = 'all'"),
-            (tf,),
-        ).fetchall()
-        tf_items = [format_row(r) for r in rows]
-        write_json(os.path.join(tf_dir, f"{tf}-all.json"), tf_items)
-        counts[f"{tf}-all"] = len(tf_items)
-
-        # tf-{language}.json — per-language ranking
-        lang_filters = conn.execute(
-            "SELECT DISTINCT language_filter FROM snapshots WHERE timeframe = ? AND language_filter != 'all'",
-            (tf,),
-        ).fetchall()
-
-        for (lang_filter,) in lang_filters:
+            # tf-all.json — overall ranking (language_filter='all')
             rows = conn.execute(
-                BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = ?"),
-                (tf, lang_filter),
+                BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = 'all'"),
+                (tf,),
             ).fetchall()
-            lang_items = [format_row(r) for r in rows]
-            slug = sanitize_filename(lang_filter)
-            write_json(os.path.join(tf_dir, f"{tf}-{slug}.json"), lang_items)
-            counts[f"{tf}-{slug}"] = len(lang_items)
+            tf_items = [format_row(r) for r in rows]
+            write_json(os.path.join(tf_dir, f"{tf}-all.json"), tf_items)
+            counts[f"{tf}-all"] = len(tf_items)
 
-    conn.close()
+            # tf-{language}.json — per-language ranking
+            lang_filters = conn.execute(
+                "SELECT DISTINCT language_filter FROM snapshots WHERE timeframe = ? AND language_filter != 'all'",
+                (tf,),
+            ).fetchall()
 
-    write_json(os.path.join(tmp_dir, "index.json"), {
-        "schema_version": 1,
-        "files": counts,
-    })
+            for (lang_filter,) in lang_filters:
+                rows = conn.execute(
+                    BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = ?"),
+                    (tf, lang_filter),
+                ).fetchall()
+                lang_items = [format_row(r) for r in rows]
+                slug = sanitize_filename(lang_filter)
+                write_json(os.path.join(tf_dir, f"{tf}-{slug}.json"), lang_items)
+                counts[f"{tf}-{slug}"] = len(lang_items)
 
-    _swap_into_place(tmp_dir, out_dir)
-    return counts
+        write_json(os.path.join(tmp_dir, "index.json"), {
+            "schema_version": 1,
+            "files": counts,
+        })
+
+        _swap_into_place(tmp_dir, out_dir)
+        return counts
+    finally:
+        conn.close()
+        if os.path.exists(tmp_dir):
+            shutil.rmtree(tmp_dir, ignore_errors=True)
 
 
 if __name__ == "__main__":

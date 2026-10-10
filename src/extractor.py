@@ -18,9 +18,11 @@ SUPPORTED_LANGUAGES = [
 
 
 def ranking_url(path: str, language_filter: str = "all") -> str:
-    path = path.split("?")[0] or "/"
+    path = path.split("?")[0].strip() or "/"
     if not path.startswith("/"):
         path = "/" + path
+    if len(path) > 1 and path.endswith("/"):
+        path = path.rstrip("/")
     if language_filter == "all":
         return f"{BASE_URL}{path}"
     return f"{BASE_URL}{path}?{urlencode({'language': language_filter})}"
@@ -63,11 +65,11 @@ def derive_period_key_from_item(item: Dict[str, Any]) -> Optional[str]:
 
 
 def derive_timeframe_from_item(item: Dict[str, Any]) -> str:
-    if "week" in item:
+    if item.get("week") is not None:
         return "weekly"
-    if "month" in item:
+    if item.get("month") is not None:
         return "monthly"
-    if "year" in item:
+    if item.get("year") is not None:
         return "yearly"
     return "daily"
 

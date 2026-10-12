@@ -67,7 +67,7 @@ jobs:
           git add data/
           git commit -m "sync: $(date -u +%Y-%m-%d)" || echo "No changes"
           python3 src/purge_history.py --max-sync-commits 14 --branch main || true
-          git push --force origin main
+          git push --force-with-lease origin main
 
 
       - name: Upload DB to release

@@ -142,7 +142,13 @@ def upsert_snapshot(
     forks_gained = item.get("repository_forks_gained", 0)
 
     raw_tags = item.get("tags") or []
-    tags = [t.get("slug") or t.get("name") for t in raw_tags if isinstance(t, dict)]
+    tags = [
+        tag
+        for t in raw_tags
+        if isinstance(t, dict)
+        for tag in (t.get("slug") or t.get("name"),)
+        if tag
+    ]
     raw_socials = item.get("social_mention_platforms") or []
     social_mentions = [s for s in raw_socials if s is not None]
 

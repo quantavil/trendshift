@@ -18,15 +18,16 @@ from db import get_connection, init_db, replace_snapshot_slice, wal_checkpoint
 from extractor import (
     SUPPORTED_LANGUAGES,
     extract_initial_data,
-    derive_period_key_from_item,
-    derive_timeframe_from_item,
-    derive_timeframe_from_path,
-    fallback_period_key,
     ranking_url,
+    resolve_timeframe_period,
 )
 from export_json import export_snapshots
 
 CORE_ENDPOINTS = ["/", "/weekly", "/monthly", "/yearly"]
+
+# Transient RSC/HTTP hiccups (e.g. one empty payload) must not fail the run.
+MAX_ATTEMPTS = 3
+RETRY_DELAY = 2.0
 
 
 async def fetch_and_upsert(
@@ -41,29 +42,39 @@ async def fetch_and_upsert(
         url = ranking_url(path, language_filter)
         headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)", "RSC": "1"}
 
+        data = None
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            try:
+                resp = await client.get(url, headers=headers, timeout=15.0)
+                resp.raise_for_status()
+
+                data = extract_initial_data(resp.text)
+                if data:
+                    break
+                print(
+                    f"[WARN] No data (attempt {attempt}/{MAX_ATTEMPTS}): "
+                    f"{language_filter} {path}",
+                    file=sys.stderr,
+                )
+            except Exception as e:
+                print(
+                    f"[ERROR] {language_filter} {path} "
+                    f"(attempt {attempt}/{MAX_ATTEMPTS}): {e}",
+                    file=sys.stderr,
+                )
+            if attempt < MAX_ATTEMPTS:
+                await asyncio.sleep(RETRY_DELAY * attempt)
+
+        if not data:
+            print(
+                f"[FAIL] Giving up: {language_filter} {path} "
+                f"after {MAX_ATTEMPTS} attempts",
+                file=sys.stderr,
+            )
+            return 0
+
         try:
-            resp = await client.get(url, headers=headers, timeout=15.0)
-            resp.raise_for_status()
-
-            data = extract_initial_data(resp.text)
-            if not data:
-                print(f"[WARN] No data: {language_filter} {path}", file=sys.stderr)
-                return 0
-
-            first = data[0]
-            path_tf = derive_timeframe_from_path(path)
-            item_tf = derive_timeframe_from_item(first)
-            timeframe = path_tf if path_tf != "daily" else item_tf
-            period_key = derive_period_key_from_item(first)
-
-            if (
-                period_key is None
-                or (timeframe == "weekly" and "-W" not in period_key)
-                or (timeframe == "monthly" and "-M" not in period_key)
-                or (timeframe == "yearly" and not (len(period_key) == 4 and period_key.isdigit()))
-            ):
-                period_key = fallback_period_key(timeframe)
-
+            timeframe, period_key = resolve_timeframe_period(data[0], path)
 
             # Perform synchronous DB slice replacement in worker thread to prevent event loop blocking
             if db_lock is not None:
@@ -106,9 +117,11 @@ async def main():
         conn.close()
 
     ok = sum(1 for n in results if n > 0)
-    if ok < len(results):
+    if ok == 0 or ok * 2 < len(results):
         print(f"[FAIL] Only {ok}/{len(results)} endpoints succeeded — aborting.", file=sys.stderr)
         sys.exit(1)
+    if ok < len(results):
+        print(f"[WARN] {ok}/{len(results)} endpoints succeeded — exporting partial sync.", file=sys.stderr)
 
     total = sum(results)
     elapsed = time.time() - start

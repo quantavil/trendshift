@@ -135,6 +135,33 @@ def derive_timeframe_from_path(path: str) -> str:
     return prefix if prefix in ("weekly", "monthly", "yearly") else "daily"
 
 
+def resolve_timeframe_period(
+    first: Dict[str, Any],
+    url_path: str,
+    now: Optional[datetime] = None,
+) -> tuple[str, str]:
+    """
+    Derives (timeframe, period_key) for a payload's first item, preferring the
+    URL path timeframe except for the daily root (which may carry any period
+    fields). Falls back to the current UTC period when the payload key is
+    missing or inconsistent with the timeframe.
+    """
+    path_tf = derive_timeframe_from_path(url_path)
+    item_tf = derive_timeframe_from_item(first)
+    timeframe = path_tf if path_tf != "daily" else item_tf
+    period_key = derive_period_key_from_item(first)
+
+    if (
+        period_key is None
+        or (timeframe == "weekly" and "-W" not in period_key)
+        or (timeframe == "monthly" and "-M" not in period_key)
+        or (timeframe == "yearly" and not (len(period_key) == 4 and period_key.isdigit()))
+    ):
+        period_key = fallback_period_key(timeframe, now)
+
+    return timeframe, period_key
+
+
 def extract_initial_data(rsc_text: str) -> Optional[List[Dict[str, Any]]]:
     """
     Extracts structured 'initialData' array from the React Flight stream payload.

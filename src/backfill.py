@@ -21,16 +21,17 @@ from extractor import (
     BASE_URL,
     SUPPORTED_LANGUAGES,
     extract_initial_data,
-    derive_period_key_from_item,
-    derive_timeframe_from_item,
-    derive_timeframe_from_path,
-    fallback_period_key,
     ranking_url,
+    resolve_timeframe_period,
 )
 from export_json import export_snapshots
 
 SITEMAP_URL = f"{BASE_URL}/sitemap.xml"
 CONCURRENCY = 10
+
+# Transient RSC/HTTP hiccups must not fail individual targets on first blip.
+MAX_ATTEMPTS = 3
+RETRY_DELAY = 2.0
 
 
 async def fetch_sitemap_urls(client: httpx.AsyncClient) -> list[str]:
@@ -76,38 +77,41 @@ async def process_target(
     language_filter: str,
     sem: asyncio.Semaphore,
     conn,
+    db_lock: asyncio.Lock | None = None,
 ) -> tuple[str, str, int]:
     url = ranking_url(url_path, language_filter)
     headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)", "RSC": "1"}
 
     async with sem:
+        data = None
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            try:
+                resp = await client.get(url, headers=headers, timeout=20.0)
+                if resp.status_code != 200:
+                    print(f"[FAIL {resp.status_code}] {language_filter:12s} {url_path} (attempt {attempt}/{MAX_ATTEMPTS})", file=sys.stderr)
+                else:
+                    data = extract_initial_data(resp.text)
+                    if data:
+                        break
+                    print(f"[WARN] No data (attempt {attempt}/{MAX_ATTEMPTS}): {language_filter:12s} {url_path}", file=sys.stderr)
+            except Exception as e:
+                print(f"[ERROR] {language_filter:12s} {url_path} (attempt {attempt}/{MAX_ATTEMPTS}): {e}", file=sys.stderr)
+            if attempt < MAX_ATTEMPTS:
+                await asyncio.sleep(RETRY_DELAY * attempt)
+
+        if not data:
+            return (url_path, language_filter, 0)
+
         try:
-            resp = await client.get(url, headers=headers, timeout=20.0)
-            if resp.status_code != 200:
-                print(f"[FAIL {resp.status_code}] {language_filter:12s} {url_path}", file=sys.stderr)
-                return (url_path, language_filter, 0)
+            timeframe, period_key = resolve_timeframe_period(data[0], url_path)
 
-            data = extract_initial_data(resp.text)
-            if not data:
-                print(f"[WARN] No data: {language_filter:12s} {url_path}", file=sys.stderr)
-                return (url_path, language_filter, 0)
-
-            first = data[0]
-            path_tf = derive_timeframe_from_path(url_path)
-            item_tf = derive_timeframe_from_item(first)
-            timeframe = path_tf if path_tf != "daily" else item_tf
-            period_key = derive_period_key_from_item(first)
-
-            if (
-                period_key is None
-                or (timeframe == "weekly" and "-W" not in period_key)
-                or (timeframe == "monthly" and "-M" not in period_key)
-                or (timeframe == "yearly" and not (len(period_key) == 4 and period_key.isdigit()))
-            ):
-                period_key = fallback_period_key(timeframe)
-
-
-            replace_snapshot_slice(conn, data, timeframe, period_key, language_filter)
+            if db_lock is not None:
+                async with db_lock:
+                    await asyncio.to_thread(
+                        replace_snapshot_slice, conn, data, timeframe, period_key, language_filter
+                    )
+            else:
+                replace_snapshot_slice(conn, data, timeframe, period_key, language_filter)
 
             print(
                 f"[OK] {language_filter:12s} {url_path:30s} -> {len(data)} ({timeframe}:{period_key})",
@@ -147,8 +151,9 @@ async def main():
             print(f"{len(endpoints)} endpoints × {len(targets) // max(len(endpoints), 1)} filters = {len(targets)} requests", file=sys.stderr)
 
             sem = asyncio.Semaphore(CONCURRENCY)
+            db_lock = asyncio.Lock()
             tasks = [
-                process_target(client, path, lang_filter, sem, conn)
+                process_target(client, path, lang_filter, sem, conn, db_lock)
                 for path, lang_filter in targets
             ]
             results = await asyncio.gather(*tasks)

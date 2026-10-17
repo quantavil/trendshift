@@ -6,22 +6,76 @@ language_filter distinguishes the overall ranking ("all") from
 per-language rankings ("Python", "Rust", etc.).
 """
 
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import sqlite3
 import json
 from datetime import datetime, timezone
 from typing import Dict, Any
 
-from extractor import slice_matches_language
+try:
+    from extractor import slice_matches_language
+except ImportError:
+    from src.extractor import slice_matches_language
+
 
 DB_FILE = "trendshift.db"
 
+# Banned spam/malware repositories evicted from DB and exports
+BANNED_REPOSITORIES = {
+    "postlayerrespect26/fps-booster-for-wiindows",
+    "primedrobulwark/discord-server-booster",
+    "wavebureaucrat/fps-booster",
+    "daggerconsole/metatrader-4-boost",
+    "liquidgiraffe8/metatrader-5-plus-edge",
+    "driftpremierplay/pia-vpn-boost",
+    "galaxydirectorcrack/indesign-setup",
+}
+
+
+def is_banned_repository(full_name: str) -> bool:
+    if not full_name:
+        return False
+    return full_name.lower().strip() in BANNED_REPOSITORIES
+
 
 def get_connection(db_path: str = DB_FILE) -> sqlite3.Connection:
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect(db_path, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL;")
     conn.execute("PRAGMA foreign_keys=ON;")
     return conn
+
+
+def wal_checkpoint(conn: sqlite3.Connection) -> None:
+    """Checkpoints WAL log into the main database file and truncates the WAL file."""
+    try:
+        conn.commit()
+    except Exception:
+        pass
+    conn.execute("PRAGMA wal_checkpoint(TRUNCATE);")
+
+
+def evict_banned_repositories(conn: sqlite3.Connection) -> int:
+    """
+    Deletes all banned/malware repositories and their associated snapshots.
+    Returns total deleted snapshot rows.
+    """
+    deleted_snapshots = 0
+    with conn:
+        for banned in BANNED_REPOSITORIES:
+            cur = conn.execute(
+                "DELETE FROM snapshots WHERE LOWER(repository_full_name) = ?",
+                (banned,),
+            )
+            deleted_snapshots += cur.rowcount
+            conn.execute(
+                "DELETE FROM repositories WHERE LOWER(full_name) = ?",
+                (banned,),
+            )
+    return deleted_snapshots
 
 
 def init_db(conn: sqlite3.Connection) -> None:
@@ -52,15 +106,17 @@ def init_db(conn: sqlite3.Connection) -> None:
                 PRIMARY KEY (timeframe, period_key, language_filter, repository_full_name)
             );
 
-            CREATE INDEX IF NOT EXISTS idx_snapshots_lookup
-            ON snapshots (timeframe, period_key, language_filter, rank);
+            DROP INDEX IF EXISTS idx_snapshots_lookup;
+            DROP INDEX IF EXISTS idx_snapshots_lang_filter;
 
-            CREATE INDEX IF NOT EXISTS idx_snapshots_lang_filter
-            ON snapshots (language_filter);
+            CREATE INDEX IF NOT EXISTS idx_snapshots_export
+            ON snapshots (timeframe, language_filter, period_key DESC, rank ASC);
 
             CREATE INDEX IF NOT EXISTS idx_repos_lang
             ON repositories (language);
         """)
+    evict_banned_repositories(conn)
+    wal_checkpoint(conn)
 
 
 def upsert_snapshot(
@@ -71,7 +127,7 @@ def upsert_snapshot(
     language_filter: str = "all",
 ) -> None:
     full_name = item.get("full_name") or ""
-    if not full_name:
+    if not full_name or is_banned_repository(full_name):
         return
 
     description = item.get("repository_description") or ""
@@ -85,8 +141,10 @@ def upsert_snapshot(
     forks_total = item.get("repository_forks", 0)
     forks_gained = item.get("repository_forks_gained", 0)
 
-    tags = [t.get("slug") or t.get("name") for t in item.get("tags", []) if isinstance(t, dict)]
-    social_mentions = item.get("social_mention_platforms", [])
+    raw_tags = item.get("tags") or []
+    tags = [t.get("slug") or t.get("name") for t in raw_tags if isinstance(t, dict)]
+    raw_socials = item.get("social_mention_platforms") or []
+    social_mentions = [s for s in raw_socials if s is not None]
 
     fetched_at = datetime.now(timezone.utc).isoformat()
 
@@ -148,35 +206,3 @@ def replace_snapshot_slice(
         )
         for item in items:
             upsert_snapshot(conn, item, timeframe, period_key, language_filter)
-
-
-def prune_ghost_dropouts(conn: sqlite3.Connection) -> int:
-    """
-    Prunes ghost dropouts across all DB slices where snapshot count exceeds 25.
-    For each slice, keeps only the 25 records with the latest fetched_at timestamp.
-    Returns total deleted rows.
-    """
-    slices = conn.execute("""
-        SELECT timeframe, period_key, language_filter, COUNT(*) as cnt
-        FROM snapshots
-        GROUP BY timeframe, period_key, language_filter
-        HAVING cnt > 25
-    """).fetchall()
-
-    deleted_total = 0
-    with conn:
-        for tf, pk, lf, cnt in slices:
-            cur = conn.execute("""
-                DELETE FROM snapshots
-                WHERE timeframe = ? AND period_key = ? AND language_filter = ?
-                  AND repository_full_name NOT IN (
-                      SELECT repository_full_name
-                      FROM snapshots
-                      WHERE timeframe = ? AND period_key = ? AND language_filter = ?
-                      ORDER BY fetched_at DESC, rank ASC
-                      LIMIT 25
-                  )
-            """, (tf, pk, lf, tf, pk, lf))
-            deleted_total += cur.rowcount
-
-    return deleted_total

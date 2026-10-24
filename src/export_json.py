@@ -13,21 +13,9 @@ import sys
 from typing import Any, Dict
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from db import get_connection, DB_FILE
+from db import get_connection, DB_FILE, BANNED_REPOSITORIES, is_banned_repository
 
 OUTPUT_DIR = "data"
-
-BASE_QUERY = """
-    SELECT
-        s.rank, s.score, s.language, s.language_filter,
-        s.stars_total, s.stars_gained, s.forks_total, s.forks_gained,
-        s.tags_json, s.social_mentions_json, s.period_key, s.timeframe,
-        r.full_name, r.description, r.created_at
-    FROM snapshots s
-    JOIN repositories r ON s.repository_full_name = r.full_name
-    {where}
-    ORDER BY s.period_key DESC, s.rank ASC
-"""
 
 
 def sanitize_filename(name: str) -> str:
@@ -38,9 +26,19 @@ def sanitize_filename(name: str) -> str:
     return s or "unknown"
 
 
+def _safe_json_loads(raw: Any) -> list:
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+        return data if isinstance(data, list) else []
+    except (json.JSONDecodeError, TypeError):
+        return []
+
+
 def format_row(r: sqlite3.Row) -> Dict[str, Any]:
-    tags = json.loads(r["tags_json"]) if r["tags_json"] else []
-    socials = json.loads(r["social_mentions_json"]) if r["social_mentions_json"] else []
+    tags = _safe_json_loads(r["tags_json"])
+    socials = _safe_json_loads(r["social_mentions_json"])
 
     return {
         "period_key": r["period_key"],
@@ -85,54 +83,78 @@ def _swap_into_place(tmp_dir: str, out_dir: str) -> None:
 
 
 def export_snapshots(db_path: str = DB_FILE, out_dir: str = OUTPUT_DIR) -> Dict[str, int]:
-    conn = get_connection(db_path)
-
     tmp_dir = out_dir + ".tmp"
     if os.path.exists(tmp_dir):
         shutil.rmtree(tmp_dir)
     os.makedirs(tmp_dir, exist_ok=True)
 
-    counts = {}
+    conn = get_connection(db_path)
+    try:
+        counts = {}
 
-    # Per timeframe
-    for tf in ("daily", "weekly", "monthly", "yearly"):
-        tf_dir = os.path.join(tmp_dir, tf)
-        os.makedirs(tf_dir, exist_ok=True)
+        # Ensure all standard timeframe directories exist and initialize default -all counts
+        for tf in ("daily", "weekly", "monthly", "yearly"):
+            os.makedirs(os.path.join(tmp_dir, tf), exist_ok=True)
+            counts[f"{tf}-all"] = 0
 
-        # tf-all.json — overall ranking (language_filter='all')
-        rows = conn.execute(
-            BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = 'all'"),
-            (tf,),
-        ).fetchall()
-        tf_items = [format_row(r) for r in rows]
-        write_json(os.path.join(tf_dir, f"{tf}-all.json"), tf_items)
-        counts[f"{tf}-all"] = len(tf_items)
+        # Query all snapshots in a single index-backed pass, excluding banned repositories
+        banned_list = [b.lower() for b in BANNED_REPOSITORIES]
+        placeholders = ",".join("?" for _ in banned_list) if banned_list else "''"
+        query = f"""
+            SELECT
+                s.rank, s.score, s.language, s.language_filter,
+                s.stars_total, s.stars_gained, s.forks_total, s.forks_gained,
+                s.tags_json, s.social_mentions_json, s.period_key, s.timeframe,
+                r.full_name, r.description, r.created_at
+            FROM snapshots s
+            JOIN repositories r ON s.repository_full_name = r.full_name
+            WHERE LOWER(r.full_name) NOT IN ({placeholders})
+            ORDER BY s.timeframe, s.language_filter, s.period_key DESC, s.rank ASC
+        """
+        params = banned_list
 
-        # tf-{language}.json — per-language ranking
-        lang_filters = conn.execute(
-            "SELECT DISTINCT language_filter FROM snapshots WHERE timeframe = ? AND language_filter != 'all'",
-            (tf,),
-        ).fetchall()
+        grouped: Dict[tuple[str, str], list] = {}
+        for row in conn.execute(query, params):
+            if is_banned_repository(row["full_name"]):
+                continue
+            key = (row["timeframe"], row["language_filter"])
+            if key not in grouped:
+                grouped[key] = []
+            grouped[key].append(format_row(row))
 
-        for (lang_filter,) in lang_filters:
-            rows = conn.execute(
-                BASE_QUERY.format(where="WHERE s.timeframe = ? AND s.language_filter = ?"),
-                (tf, lang_filter),
-            ).fetchall()
-            lang_items = [format_row(r) for r in rows]
+        # Export all 4 standard timeframes in logical order: all ranking first, then per-language rankings
+        for tf in ("daily", "weekly", "monthly", "yearly"):
+            items = grouped.pop((tf, "all"), [])
+            write_json(os.path.join(tmp_dir, tf, f"{tf}-all.json"), items)
+            counts[f"{tf}-all"] = len(items)
+
+            # Per-language ranking JSON files for this timeframe
+            tf_langs = [lf for (t, lf) in list(grouped.keys()) if t == tf]
+            for lf in tf_langs:
+                items = grouped.pop((tf, lf), [])
+                slug = sanitize_filename(lf)
+                write_json(os.path.join(tmp_dir, tf, f"{tf}-{slug}.json"), items)
+                counts[f"{tf}-{slug}"] = len(items)
+
+        # Write any remaining timeframes if present
+        for (tf, lang_filter), items in list(grouped.items()):
+            os.makedirs(os.path.join(tmp_dir, tf), exist_ok=True)
             slug = sanitize_filename(lang_filter)
-            write_json(os.path.join(tf_dir, f"{tf}-{slug}.json"), lang_items)
-            counts[f"{tf}-{slug}"] = len(lang_items)
+            write_json(os.path.join(tmp_dir, tf, f"{tf}-{slug}.json"), items)
+            counts[f"{tf}-{slug}"] = len(items)
 
-    conn.close()
 
-    write_json(os.path.join(tmp_dir, "index.json"), {
-        "schema_version": 1,
-        "files": counts,
-    })
+        write_json(os.path.join(tmp_dir, "index.json"), {
+            "schema_version": 1,
+            "files": counts,
+        })
 
-    _swap_into_place(tmp_dir, out_dir)
-    return counts
+        _swap_into_place(tmp_dir, out_dir)
+        return counts
+    finally:
+        conn.close()
+        if os.path.exists(tmp_dir):
+            shutil.rmtree(tmp_dir, ignore_errors=True)
 
 
 if __name__ == "__main__":

@@ -14,22 +14,24 @@ import re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import time
-from datetime import datetime, timezone
+from typing import Optional
 import httpx
-from db import get_connection, init_db, replace_snapshot_slice
+from db import get_connection, init_db, replace_snapshot_slice, wal_checkpoint
 from extractor import (
     BASE_URL,
     SUPPORTED_LANGUAGES,
     extract_initial_data,
-    derive_period_key_from_item,
-    derive_timeframe_from_item,
-    derive_timeframe_from_path,
     ranking_url,
+    resolve_timeframe_period,
 )
 from export_json import export_snapshots
 
 SITEMAP_URL = f"{BASE_URL}/sitemap.xml"
 CONCURRENCY = 10
+
+# Transient RSC/HTTP hiccups must not fail individual targets on first blip.
+MAX_ATTEMPTS = 3
+RETRY_DELAY = 2.0
 
 
 async def fetch_sitemap_urls(client: httpx.AsyncClient) -> list[str]:
@@ -75,31 +77,41 @@ async def process_target(
     language_filter: str,
     sem: asyncio.Semaphore,
     conn,
+    db_lock: asyncio.Lock | None = None,
 ) -> tuple[str, str, int]:
     url = ranking_url(url_path, language_filter)
     headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)", "RSC": "1"}
 
     async with sem:
+        data = None
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            try:
+                resp = await client.get(url, headers=headers, timeout=20.0)
+                if resp.status_code != 200:
+                    print(f"[FAIL {resp.status_code}] {language_filter:12s} {url_path} (attempt {attempt}/{MAX_ATTEMPTS})", file=sys.stderr)
+                else:
+                    data = extract_initial_data(resp.text)
+                    if data:
+                        break
+                    print(f"[WARN] No data (attempt {attempt}/{MAX_ATTEMPTS}): {language_filter:12s} {url_path}", file=sys.stderr)
+            except Exception as e:
+                print(f"[ERROR] {language_filter:12s} {url_path} (attempt {attempt}/{MAX_ATTEMPTS}): {e}", file=sys.stderr)
+            if attempt < MAX_ATTEMPTS:
+                await asyncio.sleep(RETRY_DELAY * attempt)
+
+        if not data:
+            return (url_path, language_filter, 0)
+
         try:
-            resp = await client.get(url, headers=headers, timeout=20.0)
-            if resp.status_code != 200:
-                print(f"[FAIL {resp.status_code}] {url_path}", file=sys.stderr)
-                return (url_path, language_filter, 0)
+            timeframe, period_key = resolve_timeframe_period(data[0], url_path)
 
-            data = extract_initial_data(resp.text)
-            if not data:
-                print(f"[WARN] No data: {url_path}", file=sys.stderr)
-                return (url_path, language_filter, 0)
-
-            first = data[0]
-            timeframe = derive_timeframe_from_item(first)
-            period_key = derive_period_key_from_item(first)
-
-            if period_key is None:
-                timeframe = derive_timeframe_from_path(url_path)
-                period_key = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-
-            replace_snapshot_slice(conn, data, timeframe, period_key, language_filter)
+            if db_lock is not None:
+                async with db_lock:
+                    await asyncio.to_thread(
+                        replace_snapshot_slice, conn, data, timeframe, period_key, language_filter
+                    )
+            else:
+                replace_snapshot_slice(conn, data, timeframe, period_key, language_filter)
 
             print(
                 f"[OK] {language_filter:12s} {url_path:30s} -> {len(data)} ({timeframe}:{period_key})",
@@ -108,7 +120,7 @@ async def process_target(
             return (url_path, language_filter, len(data))
 
         except Exception as e:
-            print(f"[ERROR] {url_path}: {e}", file=sys.stderr)
+            print(f"[ERROR] {language_filter:12s} {url_path}: {e}", file=sys.stderr)
             return (url_path, language_filter, 0)
 
 
@@ -132,19 +144,22 @@ async def main():
     conn = get_connection()
     init_db(conn)
 
-    async with httpx.AsyncClient(follow_redirects=True, transport=httpx.AsyncHTTPTransport(retries=3)) as client:
-        endpoints = await fetch_sitemap_urls(client)
-        targets = build_fetch_targets(endpoints, languages)
-        print(f"{len(endpoints)} endpoints × {len(targets) // max(len(endpoints), 1)} filters = {len(targets)} requests", file=sys.stderr)
+    try:
+        async with httpx.AsyncClient(follow_redirects=True, transport=httpx.AsyncHTTPTransport(retries=3)) as client:
+            endpoints = await fetch_sitemap_urls(client)
+            targets = build_fetch_targets(endpoints, languages)
+            print(f"{len(endpoints)} endpoints × {len(targets) // max(len(endpoints), 1)} filters = {len(targets)} requests", file=sys.stderr)
 
-        sem = asyncio.Semaphore(CONCURRENCY)
-        tasks = [
-            process_target(client, path, lang_filter, sem, conn)
-            for path, lang_filter in targets
-        ]
-        results = await asyncio.gather(*tasks)
-
-    conn.close()
+            sem = asyncio.Semaphore(CONCURRENCY)
+            db_lock = asyncio.Lock()
+            tasks = [
+                process_target(client, path, lang_filter, sem, conn, db_lock)
+                for path, lang_filter in targets
+            ]
+            results = await asyncio.gather(*tasks)
+    finally:
+        wal_checkpoint(conn)
+        conn.close()
 
     ok = sum(1 for _, _, c in results if c > 0)
     if ok == 0 or ok * 2 < len(results):

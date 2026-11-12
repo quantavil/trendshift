@@ -9,7 +9,8 @@ import os
 import re
 import subprocess
 import sys
-from typing import Dict, Any, List
+import time
+from typing import Dict, Any, List, Optional
 
 
 SYNC_DAILY_PATTERN = re.compile(r"^sync:\s*\d{4}-\d{2}-\d{2}", re.IGNORECASE)
@@ -29,31 +30,53 @@ def run_git(args: List[str], cwd: str | None = None) -> str:
 
 def get_commit_list(cwd: str | None = None) -> List[tuple[str, str]]:
     """Returns list of (sha, subject) from newest to oldest."""
-    out = run_git(["log", "--format=%H %s"], cwd=cwd)
+    return [(sha, subj) for sha, subj, _ in get_commit_list_with_dates(cwd=cwd)]
+
+
+def get_commit_list_with_dates(cwd: str | None = None) -> List[tuple[str, str, int]]:
+    """Returns list of (sha, subject, author_epoch) from newest to oldest.
+
+    Author date is used (not committer date) because `git rebase` rewrites the
+    committer date of every replayed commit, which would make all commits look
+    brand new after each purge.
+    """
+    out = run_git(["log", "--format=%H %at %s"], cwd=cwd)
     if not out:
         return []
     commits = []
     for line in out.splitlines():
-        parts = line.strip().split(" ", 1)
+        parts = line.strip().split(" ", 2)
         sha = parts[0]
-        subj = parts[1] if len(parts) > 1 else ""
-        commits.append((sha, subj))
+        ts = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 0
+        subj = parts[2] if len(parts) > 2 else ""
+        commits.append((sha, subj, ts))
     return commits
 
 
 def purge_history(
     cwd: str | None = None,
-    max_sync_commits: int = 14,
+    max_sync_commits: Optional[int] = None,
     dry_run: bool = False,
     target_branch: str = "main",
+    max_age_days: Optional[int] = None,
+    now: Optional[float] = None,
 ) -> Dict[str, Any]:
     """
-    Purges older sync commits, keeping only the most recent max_sync_commits.
-    Consolidates older sync commits and previous archive commits into a single
-    historical archive commit to prevent git history from growing indefinitely.
+    Purges old sync commits. A sync commit is kept only while it is newer than
+    max_age_days (if given) AND among the most recent max_sync_commits (if
+    given). Consolidates purged sync commits and previous archive commits into
+    a single historical archive commit so git history does not grow forever.
     """
-    commits = get_commit_list(cwd=cwd)
+    if max_sync_commits is None and max_age_days is None:
+        raise ValueError("Specify max_sync_commits and/or max_age_days.")
+
+    dated = get_commit_list_with_dates(cwd=cwd)
+    commits = [(sha, subj) for sha, subj, _ in dated]
     total_before = len(commits)
+    ts_by_sha = {sha: ts for sha, _, ts in dated}
+    cutoff = None
+    if max_age_days is not None:
+        cutoff = (now if now is not None else time.time()) - max_age_days * 86400
 
     # Commits ordered oldest to newest
     chronological = list(reversed(commits))
@@ -65,8 +88,18 @@ def purge_history(
     ]
 
     sync_count = len(sync_commits)
-    if sync_count <= max_sync_commits:
-        print(f"[OK] {sync_count} sync commits found (<= threshold {max_sync_commits}). No purge needed.")
+
+    # Index (chronological) of the newest sync commit that must be purged.
+    last_purge_idx = -1
+    if max_sync_commits is not None and sync_count > max_sync_commits:
+        last_purge_idx = sync_count - max_sync_commits - 1
+    if cutoff is not None:
+        for idx, (sha, _) in enumerate(sync_commits):
+            if ts_by_sha[sha] < cutoff:
+                last_purge_idx = max(last_purge_idx, idx)
+
+    if last_purge_idx < 0:
+        print(f"[OK] {sync_count} sync commits found, none beyond retention. No purge needed.")
         return {
             "total_before": total_before,
             "sync_before": sync_count,
@@ -74,16 +107,17 @@ def purge_history(
             "total_after": total_before,
         }
 
-    to_keep_shas = set(sha for sha, _ in sync_commits[-max_sync_commits:])
+    boundary_sha = sync_commits[last_purge_idx][0]
     sync_and_archive = [
         (sha, subj)
         for sha, subj in chronological
         if SYNC_DAILY_PATTERN.match(subj) or ARCHIVE_PATTERN.match(subj)
     ]
-    to_purge = [c for c in sync_and_archive if c[0] not in to_keep_shas]
+    boundary_pos = next(i for i, (sha, _) in enumerate(sync_and_archive) if sha == boundary_sha)
+    to_purge = sync_and_archive[: boundary_pos + 1]
     purged_count = len(to_purge)
 
-    print(f"Purging {purged_count} old sync/archive commits (keeping latest {max_sync_commits} syncs)...")
+    print(f"Purging {purged_count} old sync/archive commits (kept {sync_count - last_purge_idx - 1} recent syncs)...")
 
     if dry_run:
         print(f"[DRY-RUN] Would squash {purged_count} commits up to {to_purge[-1][0][:7]}.")
@@ -158,8 +192,14 @@ def main():
     parser.add_argument(
         "--max-sync-commits",
         type=int,
-        default=14,
-        help="Maximum number of recent daily sync commits to retain (default: 14).",
+        default=None,
+        help="Optional cap on the number of recent daily sync commits to retain.",
+    )
+    parser.add_argument(
+        "--max-age-days",
+        type=int,
+        default=None,
+        help="Squash sync commits older than this many days (default: 30 when no limit is given).",
     )
     parser.add_argument(
         "--branch",
@@ -180,7 +220,11 @@ def main():
     )
 
     args = parser.parse_args()
+    max_age_days = args.max_age_days
+    if max_age_days is None and args.max_sync_commits is None:
+        max_age_days = 30
     purge_history(
+        max_age_days=max_age_days,
         cwd=args.repo_dir,
         max_sync_commits=args.max_sync_commits,
         dry_run=args.dry_run,

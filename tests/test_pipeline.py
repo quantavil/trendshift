@@ -499,6 +499,46 @@ class HistoryPurgeTests(unittest.TestCase):
         archive_count = sum(1 for m in log_msgs if "historical archive" in m)
         self.assertEqual(archive_count, 1)
 
+    def test_purge_by_age_squashes_commits_older_than_cutoff(self):
+        import subprocess
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(tmp, ignore_errors=True))
+
+        def git(args, env=None):
+            return subprocess.check_output(["git", *args], cwd=tmp, text=True, env=env).strip()
+
+        git(["init", "-b", "main"])
+        git(["config", "user.name", "test"])
+        git(["config", "user.email", "test@test.com"])
+        with open(os.path.join(tmp, "f.txt"), "w") as f:
+            f.write("base")
+        git(["add", "."])
+        git(["commit", "-m", "initial commit"])
+
+        now = 1_800_000_000
+        # Ages in days (oldest first): 45, 40, 31, 29, 10, 0
+        for i, age in enumerate([45, 40, 31, 29, 10, 0]):
+            with open(os.path.join(tmp, "f.txt"), "w") as f:
+                f.write(f"val {i}")
+            git(["add", "."])
+            stamp = f"{now - age * 86400} +0000"
+            env = {**os.environ, "GIT_AUTHOR_DATE": stamp, "GIT_COMMITTER_DATE": stamp}
+            git(["commit", "-m", f"sync: day-{i}".replace("day-", "2026-01-0")], env=env)
+
+        res = purge_history(cwd=tmp, max_age_days=30, now=now)
+        self.assertEqual(res["purged"], 3)
+        # initial + archive + 3 recent syncs
+        self.assertEqual(res["total_after"], 5)
+
+        # Rebase rewrote committer dates, but author dates keep a second run a no-op.
+        res2 = purge_history(cwd=tmp, max_age_days=30, now=now)
+        self.assertEqual(res2["purged"], 0)
+        self.assertEqual(res2["total_after"], 5)
+
+    def test_purge_requires_a_retention_rule(self):
+        with self.assertRaises(ValueError):
+            purge_history(cwd=".")
+
     def test_purge_history_on_detached_head_updates_branch(self):
         tmp = tempfile.mkdtemp()
         self.addCleanup(lambda: shutil.rmtree(tmp, ignore_errors=True))

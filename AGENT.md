@@ -6,7 +6,7 @@
 - `src/export_json.py`: Compiles SQLite into `data/{timeframe}/{timeframe}-{lang}.json` plus `data/index.json`. Swap via `.tmp` / `.old` so a crash never leaves `data/` missing.
 - `src/backfill.py`: Async parallel pipeline (`httpx` + `asyncio.Semaphore(10)`) backfilling 2,768 endpoints across 173 periods × 16 language filters.
 - `src/sync_daily.py`: Daily updater fetching 64 target URLs (4 core endpoints × 16 language filters). Semaphore(10), shared connection, retry transport.
-- `.github/workflows/daily_sync.yml`: Cron at 20:17 UTC (primary, end-of-day peak) and 23:43 UTC (pre-midnight backup) → download DB release → sync → commit JSON → upload DB to release asset.
+- `.github/workflows/daily_sync.yml`: Cron at 20:17 UTC (primary, end-of-day peak) and 23:43 UTC (pre-midnight backup) → download DB release (if `db-latest` is missing, bootstrap via `backfill.py`) → sync → commit JSON → squash sync commits older than 30 days (`purge_history.py --max-age-days 30`, by author date) → upload DB to release asset.
 - `trendshift.db`: Master SQLite database containing historical and daily snapshots across unique repositories.
 - `data/`: 64 static JSON API files (~37 MB total). Data split by timeframe×language only.
 
@@ -25,3 +25,4 @@
 - **Ghost dropouts in open periods**: `upsert_snapshot()` never evicted repos that fell out of top 25 during open period re-syncs, causing slices to grow to 40+ rows. Fixed by replacing slices before inserting (`replace_snapshot_slice()`) and pruning existing DB ghost rows (`prune_ghost_dropouts()`).
 - **Fail-open CI release download**: `continue-on-error: true` allowed blank DB creation if release download failed. Fixed with explicit `gh release view` check and `if: success()` upload guard.
 - **Non-atomic export**: Direct `shutil.rmtree(data/)` then rebuild meant crashes lost files. Fixed with `.tmp` dir and atomic rename.
+- **Missing `db-latest` release**: Release vanished and every run failed with `release not found`. The workflow now bootstraps via backfill when (and only when) that exact error occurs; other download errors still fail closed.

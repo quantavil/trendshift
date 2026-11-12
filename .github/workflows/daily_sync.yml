@@ -42,21 +42,33 @@ jobs:
         run: python3 -m unittest discover -s tests -q
 
       - name: Download existing DB from release
+        id: download
         run: |
           echo "Downloading trendshift.db from db-latest release..."
+          if ! gh release view db-latest >/dev/null 2>release_err.txt; then
+            if grep -qi "release not found" release_err.txt; then
+              echo "::warning::db-latest release is missing - bootstrapping a fresh DB via full backfill."
+              echo "bootstrap=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            cat release_err.txt >&2
+            exit 1
+          fi
           gh release download db-latest --pattern trendshift.db --clobber
           if [ ! -s trendshift.db ]; then
             echo "Error: trendshift.db is missing or empty!" >&2
             exit 1
           fi
+          echo "bootstrap=false" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run sync
         run: |
-          if [ "${{ inputs.backfill }}" = "true" ]; then
+          if [ "${{ inputs.backfill }}" = "true" ] || [ "${{ steps.download.outputs.bootstrap }}" = "true" ]; then
             python3 src/backfill.py
-          else
+          fi
+          if [ "${{ inputs.backfill }}" != "true" ]; then
             python3 src/sync_daily.py
           fi
 
@@ -66,7 +78,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
           git commit -m "sync: $(date -u +%Y-%m-%d)" || echo "No changes"
-          python3 src/purge_history.py --max-sync-commits 14 --branch main || true
+          python3 src/purge_history.py --max-age-days 30 --branch main || true
           git push --force-with-lease origin main
 
 
